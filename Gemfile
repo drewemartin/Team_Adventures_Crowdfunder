@@ -11,21 +11,23 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'foundation-rails'
+gem 'kaminari'
+gem 'handlebars_assets'
 gem 'high_voltage'
-group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_21]
-  gem 'quiet_assets'
-  gem 'rails_layout'
-end
+gem 'bcrypt', '~> 3.1.7'
+
 group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-end
-group :test do
-  gem 'capybara'
-  gem 'database_cleaner'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem "factory_girl_rails", "~> 4.0"
   gem 'faker'
-  gem 'launchy'
-  gem 'selenium-webdriver'
+  gem 'capybara'
+
 end
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'pry-rails'
+end
+
+
