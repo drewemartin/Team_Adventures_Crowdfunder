@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'projects/index'
+  root to: 'projects#index'
 
-  get 'projects/show'
+  
+  resources :projects
 
-  get 'projects/create'
-
-  root to: 'visitors#index'
 end

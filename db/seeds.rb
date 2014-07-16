@@ -5,23 +5,28 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+categories = %w(Entertainment Film  Music Art)
 
+categories.each do |name| 
+  Category.create(:name => name)
+end
 
-category = %w(Entertainment Film  Music Art)
+10.times do |username, crypted_password,salt, email |
+	user = User.create(:username => Faker::Name.name,:crypted_password => Faker::Code.ean, :salt => Faker::Code.ean, :email => Faker::Internet.email  )
+end
 
 10.times do |title, description, goal, start_time, end_time, picture_url, category|
-  start_time =
-  end_time = 
-  title = 
-  description = 
-  photo_url = rand(1..9)
+  start_time = DateTime.new
+  end_time = DateTime.new + 3.days
+  title = Faker::Company.name
+  description = Faker::Lorem.paragraph
+  picture_url = rand(1..9)
 
-
-  Restaurant.create( 
+  Project.create( 
     :title => title,
-    :capacity => capacity,
+    :description => description,
     :picture_url => picture_url,
-    :category_id => category.id
-    :user_id => user.id
+    :category_id => Category.first,
+    :user_id => User.first
     )
 end

@@ -1,27 +1,50 @@
-<h1>Index</h1>
 
 <div id="slider">
   <ul class="example-orbit" data-orbit>
+  
+    <% @most_recent_project.each do |latest_project| %>
     <li>
-      <img src="http://lorempixel.com/900/300/nightlife/3" alt="slide 1" />
+     <img src="http://lorempixel.com/900/300/technics/<%= latest_project.picture_url %>" alt="slide 2" />
       <div class="orbit-caption">
-        Project A
+        <%= link_to latest_project.title, project_path(latest_project)%>
       </div>
     </li>
-    <li class="active">
-      <img src="http://lorempixel.com/900/300/fashion/3" alt="slide 2" />
-      <div class="orbit-caption">
-        Project B
-      </div>
-    </li>
-    <li>
-      <img src="http://lorempixel.com/900/300/technics/3" alt="slide 3" />
-      <div class="orbit-caption">
-        Project C
-      </div>
-    </li>
+    <% end %>
   </ul>
 
   <a class="button success radius large start" href="add_project.html">Start a Project</a>
 
 </div><!-- #slider -->
+
+<br>
+  <div class="row">
+
+
+    <div class="medium-2 columns">
+
+      <ul class="side-nav">
+         <li><strong>Category</strong></li>
+
+        <% @categories.each do |category| %> 
+          <li><%= category.name %></li>
+       
+         <% end %> 
+
+      </ul>
+
+    </div>
+
+    <div class="medium-10 columns">
+
+      <ul class="small-block-grid-3">
+
+        <% @projects.each do |project| %>
+          <li><%= link_to image_tag('http://lorempixel.com/200/150/technics/' + project.picture_url), project_path(project) %></li>
+       <% end %>
+
+
+        </ul>
+
+        </div>
+
+    </div><!-- row -->
