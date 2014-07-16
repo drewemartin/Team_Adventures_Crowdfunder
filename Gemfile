@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
 gem 'kaminari'
 gem 'handlebars_assets'
 gem 'high_voltage'

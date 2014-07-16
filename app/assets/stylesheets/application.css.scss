@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'foundation-icons';
+
+section {
+	margin:0;
+}
+
+
+#slider {
+  position: relative;
+
+   img {
+   	 width: 100%;
+   }
+}
+
+.start {
+  position: absolute;
+  bottom: 100px;
+  left: 42.5%;
+}
