@@ -1,5 +1,21 @@
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe User do
+	it "has a valid factory" do
+		expect(FactoryGirl.create(:user)).to be_valid
+	end
+	it "is invalid without username" do
+		expect(FactoryGirl.build(:user, username: nil)).to_not be_valid
+	end
+	it "username is invalid less than 2 characters" do
+		expect(FactoryGirl.build(:user, username: "a")).to_not be_valid
+	end
+	it "is invalid without email" do 
+		expect(FactoryGirl.build(:user, email: nil)).to_not be_valid
+	end
+	it "is invalid with identical email" do
+		firstUser = FactoryGirl.create(:user)
+		expect(FactoryGirl.build(:user, email: firstUser.email)).to_not be_valid
+	end
 end
+

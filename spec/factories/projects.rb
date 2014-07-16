@@ -1,14 +1,15 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
 FactoryGirl.define do
   factory :project do
-    description "MyText"
-    title "MyString"
-    goal 1
-    start_time "2014-07-16 14:12:09"
-    end_time "2014-07-16 14:12:09"
-    picture_url "MyString"
-    user nil
-    category nil
+    user
+    title {Faker::Hacker.noun}
+    goal{Faker::Number.number(7)}
+    start_time DateTime.now + 7.hours
+    end_time { start_time ? start_time + 4.days : 4.days.since }
+    category 
+    description {Faker::Lorem.characters(100)}
+    picture_url{Faker::Company.logo}
   end
 end
