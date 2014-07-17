@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :reward do
-    description "MyText"
-    amount 1
-    project nil
+    description {Faker::Company.catch_phrase}
+    amount {Faker::Number.number(10)}
+    project 
   end
 end
