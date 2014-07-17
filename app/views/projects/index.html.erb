@@ -41,7 +41,9 @@
 
     <div class="medium-10 columns">
 
-    
+    <ul class="breadcrumbs">
+      <li><%= link_to "All Projects", projects_path %></li>
+    </ul>
 
       <ul class="small-block-grid-3">
 
@@ -52,10 +54,12 @@
 
         </ul>
 
-        </div>
-
-        <div id="paginate">
+         <div id="paginate">
           <%= paginate @projects, :window => 2 %>
         </div>
+
+        </div>
+
+       
 
     </div><!-- row -->
