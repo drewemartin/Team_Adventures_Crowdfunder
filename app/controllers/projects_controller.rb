@@ -14,6 +14,11 @@ class ProjectsController < ApplicationController
      @projects = @projects.order(created_at: :desc).page(params[:page])
   end
 
+  def new
+    @project = Project.new
+  end
+
+  
   def show
   end  
 
