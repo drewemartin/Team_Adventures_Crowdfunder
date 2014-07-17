@@ -11,9 +11,7 @@ categories.each do |name|
   Category.create(:name => name)
 end
 
-10.times do |username, crypted_password,salt, email |
-	user = User.create(:username => Faker::Name.name,:crypted_password => Faker::Code.ean, :salt => Faker::Code.ean, :email => Faker::Internet.email  )
-end
+
 
 10.times do |title, description, goal, start_time, end_time, picture_url, category|
   start_time = DateTime.new
@@ -21,6 +19,10 @@ end
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)
+
+10.times do |username, crypted_password,salt, email |
+  User.create(:username => Faker::Name.name,:crypted_password => Faker::Code.ean, :salt => Faker::Code.ean, :email => Faker::Internet.email  )
+end
 
   Project.create( 
     :title => title,

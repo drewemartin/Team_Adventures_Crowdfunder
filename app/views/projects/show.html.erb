@@ -1,2 +1,149 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<div class="margin"></div>
+
+  <div class="row">
+
+
+    <div class="medium-4 columns">
+
+      <img src="http://lorempixel.com/300/250/technics/<%= @project[:picture_url] %>" alt="slide 2" />
+
+    </div>
+
+    <div class="medium-8 columns">
+
+        
+      <h4><%= @project[:title] %></h4><hr>
+      <p><%= @project[:description] %></p>
+
+      </div>
+<hr>
+  </div><!-- row -->
+
+
+  <div class="row">
+
+
+    <div class="medium-4 columns">
+
+
+
+            <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div><img src="http://placehold.it/350x150/333/&text=avatar"></div>
+              <div class="panel-heading text-center"><em>Creator Name</em></div>
+              <div class="panel-body">
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+              </div>
+              <div class="panel-footer">
+                <ul class="inline-list author">
+                  <li class="text-center"><a href="#" data-reveal-id="bio">Bio</a></li>
+                  <li class="text-center"><a href="#" data-reveal-id="contact">Contact</a></li>
+                </ul>
+
+                <div id="bio" class="reveal-modal small panel callout" data-reveal>
+                  <h2>Author bio</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                  <a class="close-reveal-modal">&#215;</a>
+                </div>
+
+                 <div id="contact" class="reveal-modal small panel" data-reveal>
+                  <h2>Let's Get in Touch!</h2>
+                 
+
+                    <form>
+                    <div class="row">
+                      <div class="large-12  columns">
+                        <label>Name:
+                          <input type="text" placeholder="Your Name" />
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="large-12 columns">
+                        <label>Note
+                          <textarea type="text" rows="3"/></textarea>
+                        </label>
+                      </div>
+                    </div>
+
+                    </form>
+                    <hr>
+
+                  <div class="row">
+                      <div class="large-12 columns">
+                          <ul class="inline-list text-center">
+                            <li><i class="fi-social-facebook large"></i></li>
+                            <li><i class="fi-social-twitter large"></i></li>
+                          </ul>
+                      </div>
+                    </div>
+
+                  <a class="close-reveal-modal">&#215;</a>
+                </div>
+              </div>           
+            </div><!-- panel -->
+          </div>
+    
+
+
+    <div class="medium-8 columns">
+
+      <div class="row">
+        <div class="medium-10 medium-offset-1 columns pledge">
+          <h4 class="text-center">Pledge on this Project</h4>
+        </div>
+      </div>
+
+ 
+
+      <div class="row">
+
+         <div class="medium-12  columns">
+
+
+            <div class="row">
+                <div class="medium-4 columns">
+                    <ul class="pricing-table">
+                      <li class="title">$10.00</li>
+                      <li class="divider"></li>
+                       <li class="description">An awesome description:Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</li>
+                      <li class="cta-button"><a class="button small radius" href="#">Plegde</a></li>                 
+                    </ul>
+                </div>
+
+                 <div class="medium-4 columns">
+                    <ul class="pricing-table">
+                      <li class="title">$20.00</li>
+                      <li class="divider"></li>
+                       <li class="description">An awesome description:Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</li>
+                      <li class="cta-button"><a class="button small success radius" href="#">Plegde</a></li>                 
+                    </ul>
+                </div>
+
+                  <div class="medium-4 columns">
+                    <ul class="pricing-table">
+                      <li class="title">$40.00</li>
+                      <li class="divider"></li>
+                       <li class="description">An awesome description:Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</li>
+                      <li class="cta-button"><a class="button small alert radius" href="#">Plegde</a></li>                 
+                    </ul>
+                </div>
+
+            </div>
+          
+        </div>
+
+      </div>
+  
+      
+
+
+  </div><!-- row -->

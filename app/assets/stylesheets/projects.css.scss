@@ -1,3 +1,123 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* Layout Variables */
+$margin: 20px;
+$font-size: 2rem;
+
+.pricing-table .title {
+  font-size: $font-size;
+}
+
+
+.pledge {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 1% 0;
+  margin: 4% 0;
+}
+
+/*bio styling*/
+.panel {
+margin-bottom: 20px;
+background-color: #fff;
+border: 1px solid #ddd;
+border-radius: 4px;
+-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.panel-heading {
+  padding: 10px 15px;
+background-color: #f5f5f5;
+border-top: 1px solid #ddd;
+border-bottom-right-radius: 3px;
+border-bottom-left-radius: 3px;
+
+}
+
+.panel-footer {
+padding: 10px 15px;
+border-top: 1px solid #ddd;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+
+}
+
+.panel-title {
+margin-top: 0;
+margin-bottom: 0;
+font-size: 16px;
+color: inherit;
+}
+
+.panel-body {
+padding: 15px;
+}
+
+.panel-default {
+border-color: #ddd;
+}
+
+.author li {
+  width: 50%;
+  margin: 0;
+}
+  .author li:first-child {
+   border-right: 1px solid #ddd;
+}
+
+i.large {
+font-size: 40px;
+line-height: 50px;
+}
+
+#contact i {
+color: #666;
+transition: all .8s;
+}
+
+ #contact i:hover {
+ color: #000;
+}
+
+.outline-outward:before {
+  border: #666 solid 4px;
+}
+
+.projects li {
+  position: relative;
+}
+
+.details {
+  position: absolute;
+  left: 30.35%;
+  bottom: 30%;
+  display: inline-block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: middle;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  line-height: 28px;
+  min-height: 30px;
+  font-size: 1rem;
+  padding: 0 12px;
+  background: #f7f7f7;
+  color: #666;
+  border: 1px solid rgba(0,0,0,.2);
+  border-bottom-color: rgba(0,0,0,.3);
+  background-origin: border-box;
+  background-image: -webkit-linear-gradient(top,#fff,#eee);
+  background-image: linear-gradient(to bottom,#fff,#eee);
+  border-radius: 4px;
+  text-shadow: 0 1px 0 #fff;
+  display:none;
+}
+
+.reward {
+  display: none;
+}

@@ -16,6 +16,14 @@
 
 @import 'foundation-icons';
 
+/* Layout Variables */
+$margin: 20px;
+$font-size: 2rem;
+
+.margin {
+  margin-top: $margin + 10px;
+}
+
 section {
 	margin:0;
 }
@@ -34,3 +42,5 @@ section {
   bottom: 100px;
   left: 42.5%;
 }
+
+

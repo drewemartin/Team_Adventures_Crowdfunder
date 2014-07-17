@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-  	
+   p @project.user  	
   end
 
   def create
