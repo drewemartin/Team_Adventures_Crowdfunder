@@ -3,9 +3,11 @@ class Project < ActiveRecord::Base
   belongs_to :category
   has_many :rewards
   has_many :pledges, :through => :rewards
+  accepts_nested_attributes_for :rewards
 
 
   scope :most_recent_five, -> { all.limit(5) }
+
 
   validates :title, :start_time, :end_time, :description, :presence => true
   validates :title, length: {minimum: 3} 
