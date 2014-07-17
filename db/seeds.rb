@@ -6,9 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+
 categories = %w(Entertainment Film Music Art Fashion Food Games Photography)
 r_username = %w(matt weiyi drew sandy chad julie ryan fabio lorie mike)
 username = r_username[(rand(0..10))]
+
 
 categories.each do |name| 
   Category.create(:name => name)
@@ -17,6 +20,7 @@ end
 r_username.each do |username|
   User.create(:username => username, :biography => Faker::Lorem.paragraph, :email => Faker::Internet.email, :crypted_password => Faker::Code.ean, :salt => Faker::Code.ean, :email => Faker::Internet.email  )
 end
+
 
 
 entertainment = Category.where(:name => "Entertainment").first
@@ -154,3 +158,16 @@ end
     :user_id => user.id
     )
 end
+
+project_array = Project.all
+
+project_array.each do |project|
+
+  3.times{
+    project.rewards.create(
+        :description => Faker::Lorem.paragraph,
+        :amount => 10 + Random.rand(10)
+      )
+  }
+end
+

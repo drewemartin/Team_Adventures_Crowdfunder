@@ -16,14 +16,22 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.rewards.build
   end
 
   
   def show
+    @rewards = @project.rewards
+    @sum_of_amount = @rewards.inject(0) do |sum, reward|
+
+      num_of_pledges = reward.pledges.count
+      sum_of_the_reward = num_of_pledges * reward.amount
+      sum + sum_of_the_reward
+    end
   end  
 
   def create
-    @project = Restaurant.new(restaurant_params)
+    @project = Project.new(project_params)
 
     respond_to do |format|
       if @project.save

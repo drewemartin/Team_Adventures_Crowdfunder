@@ -6,6 +6,7 @@
 /* Layout Variables */
 $margin: 20px;
 $font-size: 2rem;
+$red_shade: #ff4c4c;
 
 .pricing-table .title {
   font-size: $font-size;
@@ -120,4 +121,14 @@ transition: all .8s;
 
 .reward {
   display: none;
+}
+
+.reward_btn {
+  width: 10rem;
+}
+
+.button.fund_raised {
+  background: #fff;
+  color: $red_shade;
+  border: 2px solid $red_shade;
 }
