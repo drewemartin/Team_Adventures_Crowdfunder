@@ -29,103 +29,128 @@ photography = Category.where(:name => "Photography").first
 user = User.where(:username => "sandy").first
 
 10.times do |title, description, goal, start_time, end_time, picture_url, category, user|
-  start_time = DateTime.new + 7.hour
-  end_time = DateTime.new + 4.days
+  start_time = DateTime.now + 7.hours
+  end_time = DateTime.now + 3.days
   goal = 10
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)
+  user = User.where(:username => "sandy").first
 
-  Project.create( 
+
+  Project.create!( 
     :title => title,
+    :goal => goal,
+    :start_time =>  start_time,
+    :end_time =>  end_time,
     :description => description,
     :picture_url => picture_url,
     :category_id => entertainment.id,
-    :user_id => user
+    :user_id => user.id
     )
 end
 
 10.times do |title, description, goal, start_time, end_time, picture_url, category, user|
-  start_time = DateTime.new
+  start_time = DateTime.now + 7.hours
+  end_time = DateTime.now + 3.days
   goal = 20
-  end_time = DateTime.new + 3.days
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)
+  user = User.where(:username => "drew").first
 
-  Project.create( 
+  Project.create!( 
     :title => title,
+    :goal => goal,
+    :start_time =>  start_time,
+    :end_time =>  end_time,
     :description => description,
     :picture_url => picture_url,
     :category_id => film.id,
-    :user_id => user
+    :user_id => user.id
     )
 end
 
 10.times do |title, description, goal, start_time, end_time, picture_url, category, user|
-  start_time = DateTime.new
+  start_time = DateTime.now + 7.hours
+  end_time = DateTime.now + 3.days
   goal = 45
-  end_time = DateTime.new + 3.days
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)
+  user = User.where(:username => "weiyi").first
 
-  Project.create( 
+  Project.create!( 
     :title => title,
+    :start_time =>  start_time,
+    :end_time =>  end_time,
+    :goal => goal,
     :description => description,
     :picture_url => picture_url,
     :category_id => art.id,
-    :user_id => user
+    :user_id => user.id
     )
 end
 
 10.times do |title, description, goal, start_time, end_time, picture_url, category, user|
-  start_time = DateTime.new
-  end_time = DateTime.new + 3.days
+ start_time = DateTime.now + 7.hours
+  end_time = DateTime.now + 3.days
   goal = 34
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)
+  user = User.where(:username => "lorie").first
   
-  Project.create( 
+  Project.create!( 
     :title => title,
+    :goal => goal,
+    :start_time => start_time,
+    :end_time => end_time,
     :description => description,
     :picture_url => picture_url,
     :category_id => fashion.id,
-    :user_id => user
+    :user_id => user.id
     )
 end
 
 10.times do |title, description, goal, start_time, end_time, picture_url, category, user|
-  start_time = DateTime.new
-  end_time = DateTime.new + 3.days
+  start_time = DateTime.now + 7.hours
+  end_time = DateTime.now + 3.days
   goal = 56
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)
+  user = User.where(:username => "chad").first
 
-  Project.create( 
+  Project.create!( 
     :title => title,
+    :start_time =>  start_time,
+    :end_time =>  end_time,
+    :goal => goal,
     :description => description,
     :picture_url => picture_url,
     :category_id => game.id,
-    :user_id => user
+    :user_id => user.id
     )
 end
 
 10.times do |title, description, goal, start_time, end_time, picture_url, category, user|
-  start_time = DateTime.new
-  end_time = DateTime.new + 3.days
+  start_time = DateTime.now + 7.hours
+  end_time = DateTime.now + 3.days
   goal = 78
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)
+  user = User.where(:username => "fabio").first
 
-  Project.create( 
+  Project.create!( 
+    :start_time =>  start_time,
+    :end_time =>  end_time,
     :title => title,
     :description => description,
+    :goal => goal,
     :picture_url => picture_url,
     :category_id => photography.id,
-    :user_id => user
+    :user_id => user.id
     )
 end

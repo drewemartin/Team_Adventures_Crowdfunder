@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-  end
+  end  
 
   def create
   end
