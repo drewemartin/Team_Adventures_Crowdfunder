@@ -48,4 +48,13 @@ describe Project do
   	expect(FactoryGirl.build(:project, description:"eat")).to_not be_valid
   end
 
+  it "has many rewards" do
+    project = FactoryGirl.create(:project)
+    expect(project).to respond_to(:rewards)
+  end
+  it "has many pledges" do
+      project = FactoryGirl.create(:project)
+      expect(project).to respond_to(:pledges)
+  end
+
 end

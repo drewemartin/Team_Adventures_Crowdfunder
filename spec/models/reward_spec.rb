@@ -25,7 +25,15 @@ describe Reward do
  	project = FactoryGirl.create(:project)
  	reward1 = FactoryGirl.create(:reward, project: project, amount:2)
  	expect(FactoryGirl.build(:reward, project: project, amount:2)).to_not be_valid
+ end
 
+ it "belongs to a project" do
+ 	reward = FactoryGirl.create(:reward)
+ 	expect(reward).to respond_to(:project)
+ end
+ it "has many pledges" do
+ 	reward = FactoryGirl.create(:reward)
+ 	expect(reward).to respond_to(:pledges)
  end
 
 

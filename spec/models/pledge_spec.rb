@@ -1,5 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Pledge, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Pledge do
+  it "should belongs to a user" do
+  	pledge = FactoryGirl.create(:pledge)
+  	expect(pledge).to respond_to(:user)
+  end
+  it "should belongs to a reward" do
+  	  	pledge = FactoryGirl.create(:pledge)
+  	expect(pledge).to respond_to(:reward)
+  end
 end
