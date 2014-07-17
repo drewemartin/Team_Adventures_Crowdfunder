@@ -28,13 +28,13 @@ group :development, :test do
   gem 'faker'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'pry-rails'
 
 end
 
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
-  gem 'pry-rails'
 end
 
 
