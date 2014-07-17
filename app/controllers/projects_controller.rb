@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
       else
         Project.all
       end
+
   	 
   	 @categories = Category.all
   	 @most_recent_project = Project.most_recent_five
