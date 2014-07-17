@@ -3,7 +3,7 @@
   <nav class="top-bar" data-topbar>
     <ul class="title-area">
       <li class="name">
-        <h1><a href="#">CROWDFUNDER</a></h1>
+        <h1><%= link_to "CROWDFUNDER", root_url %></h1>
       </li>
        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -16,21 +16,27 @@
    
 
         <li class="has-form" id="search">
+
           <div class="row collapse">
 
-            <div class="large-2 small-3 columns">
-              <a href="#" class="button expand success search"><i class="fi-magnifying-glass"></i></a>
+
+        <%= form_tag projects_path, method: :get, authentication: false, id: 'search-form' do %>
+
+            <div class="large-1 small-3 columns">
+             <i class="fi-magnifying-glass button success search"></i>
+
             </div>
 
             <div class="large-10 small-9 columns">
-              <input type="text" placeholder="Search Projects">
+             <%= text_field_tag :search, params[:search], class: 'search_input', value: 'Search Projects' %>
             </div>
-            
+             <% end %>
+
           </div>
         </li>
 
-        <li class="has-form">
-          <a href="add_project.html" class="button success large radius">Start a New Project</a>
+        <li class="has-form">   
+           <%= link_to "Start a New Project", new_project_path, class: 'button success large radius' %>
         </li>
         
       </ul>
