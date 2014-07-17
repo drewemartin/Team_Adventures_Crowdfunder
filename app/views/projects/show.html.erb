@@ -30,11 +30,10 @@
             <div class="panel panel-default">
               <!-- Default panel contents -->
               <div><img src="http://placehold.it/350x150/333/&text=avatar"></div>
-              <div class="panel-heading text-center"><em>Creator Name</em></div>
+              <div class="panel-heading text-center"><em><%= @project.user.username %></em></div>
               <div class="panel-body">
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                <p>Biography: <%= @project.user.biography %></p>
               </div>
               <div class="panel-footer">
                 <ul class="inline-list author">
@@ -43,10 +42,8 @@
                 </ul>
 
                 <div id="bio" class="reveal-modal small panel callout" data-reveal>
-                  <h2>Author bio</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                  <h2><%= @project.user.username %></h2>
+                  <p><%= @project.user.biography %></p>
                   <a class="close-reveal-modal">&#215;</a>
                 </div>
 

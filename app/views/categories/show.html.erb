@@ -31,6 +31,7 @@
          <li><strong>Category</strong></li>
 
         <% @categories.each do |category| %> 
+        
           <li><%= link_to category.name, category_path(category) %></li>
        
          <% end %> 
@@ -41,11 +42,9 @@
 
     <div class="medium-10 columns">
 
-    
-
       <ul class="small-block-grid-3">
 
-        <% @projects.each do |project| %>
+        <%  @per_category.each do |project| %>
           <li><%= link_to image_tag('http://lorempixel.com/200/150/technics/' + project.picture_url), project_path(project) %></li>
        <% end %>
 

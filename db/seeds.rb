@@ -15,7 +15,7 @@ categories.each do |name|
 end
 
 r_username.each do |username|
-  User.create(:username => username, :email => Faker::Internet.email, :crypted_password => Faker::Code.ean, :salt => Faker::Code.ean, :email => Faker::Internet.email  )
+  User.create(:username => username, :biography => Faker::Lorem.paragraph, :email => Faker::Internet.email, :crypted_password => Faker::Code.ean, :salt => Faker::Code.ean, :email => Faker::Internet.email  )
 end
 
 
