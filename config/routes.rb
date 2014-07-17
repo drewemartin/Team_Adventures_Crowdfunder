@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   resources :projects, :only =>[:new, :create, :index, :show]
 
-  resources :pledge, :only =>[:create]
+  resources :pledges, :only =>[:create]
 
   resources :categories, :only =>[:index, :show]
 
-  resources :user, :only =>[:new,:create, :show, :edit,:update]
+  resources :users, :only =>[:new, :create, :show, :edit, :update]
 
   resources :user_sessions, :only=>[:new,:create, :destroy]
 	get 'login' => 'user_sessions#new', :as => :login

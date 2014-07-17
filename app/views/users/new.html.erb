@@ -1,4 +1,27 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
 
-<%= render 'form' %>
+<div class="row">
+	<div class="medium-6 columns">
+	<%= form_for @user do |f| %>
+		<div class="field">
+			<%= f.label :username %>
+			<%= f.text_field :username %>
+		</div>
+		<div class="field">
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+		</div>
+		<div class="field">
+			<%= f.label :biography %>
+			<%= f.text_area :biography, placeholder: "please tell us about you"%>  
+		</div>
+		<div class="field">
+			<%= f.label :phone %>
+			<%= f.text_field :phone %>
+		</div>
+		<%= f.submit class: 'button' %>
+<% end %>	
+			
+	</div><!-- column -->
+</div><!-- row -->
