@@ -2,7 +2,13 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-  	 @projects = Project.all
+
+  	@projects = if params[:search]
+        Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
+      else
+        Project.all
+      end
+  	 
   	 @categories = Category.all
   	 @most_recent_project = Project.most_recent_five
   end

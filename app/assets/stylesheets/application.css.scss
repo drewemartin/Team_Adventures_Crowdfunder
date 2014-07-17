@@ -19,6 +19,7 @@
 /* Layout Variables */
 $margin: 20px;
 $font-size: 2rem;
+$radius: 5px;
 
 .margin {
   margin-top: $margin + 10px;
@@ -52,6 +53,27 @@ section {
    }
 
 }
+
+#search {
+
+	.search {
+		border-top-left-radius: $radius;
+		border-bottom-left-radius: $radius;
+		// padding:0;
+	}
+
+	.search_input {
+		border-top-right-radius: $radius;
+		border-bottom-right-radius: $radius;
+
+	}
+
+	input[value] {
+		color: #666;
+	}
+
+}
+
 
 
 

@@ -5,12 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-categories = %w(Entertainment Film  Music Art)
+categories = %w(Entertainment Film Music Art)
 
 categories.each do |name| 
   Category.create(:name => name)
 end
 
+entertainment = Category.where(:name => "Entertainment").first
+entertainment = Category.where(:name => "Film").first
 
 
 10.times do |title, description, goal, start_time, end_time, picture_url, category|
