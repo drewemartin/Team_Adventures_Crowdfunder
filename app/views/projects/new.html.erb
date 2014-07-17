@@ -1,1 +1,60 @@
-Add a Project
+
+<div class="row">
+
+<div class="margin"></div>
+
+	<div class="medium-6 medium-offset-3 columns">
+		
+		<h1>Add a Project</h1>
+
+
+		<%= form_for(@project) do |f| %>
+		  <% if @project.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@cuisine.errors.count, "error") %> prohibited this cuisine from being saved:</h2>
+
+		      <ul>
+		      <% @project.errors.full_messages.each do |message| %>
+		        <li><%= message %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+
+		  <div class="field">
+		    <%= f.label :title %>
+		    <%= f.text_field :title %>
+		  </div>
+
+		  <div class="field">
+		    <%= f.label :description %>
+		    <%= f.text_area :description, rows: '5' %>
+		  </div>
+
+		  <div class="field">
+		    <%= f.label :goal %>
+		    <%= f.number_field :goal, placeholder: '$' %>
+		  </div>
+
+		   <div class="field">
+		    <%= f.label :start_time %>
+		    <%= date_field(:user, :date) %>
+		  </div>
+
+		  <div class="field">
+		    <%= f.label :end_time %>
+		    <%= date_field(:user, :date) %>
+		  </div>
+
+		  <div class="field">
+		          <%= f.label "Category" %>
+		          <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => false %>
+		          </div>
+
+
+		  <div class="actions">
+		    <%= f.submit class: 'button success small radius right' %>
+		  </div>
+		<% end %>
+	</div>
+</div>

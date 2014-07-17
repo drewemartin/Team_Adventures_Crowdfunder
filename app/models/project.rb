@@ -3,7 +3,10 @@ class Project < ActiveRecord::Base
   belongs_to :category
   has_many :rewards
   has_many :pledges, :through => :rewards
+<<<<<<< HEAD
 
+=======
+>>>>>>> bcdc845f481e2bd3ffe72fea17e4643cbb44f07b
 
   scope :most_recent_five, -> { all.limit(5) }
 
@@ -36,4 +39,9 @@ class Project < ActiveRecord::Base
 
   end
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> bcdc845f481e2bd3ffe72fea17e4643cbb44f07b
 end
