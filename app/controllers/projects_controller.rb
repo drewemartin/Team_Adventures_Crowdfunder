@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   	 
   	 @categories = Category.all
   	 @most_recent_project = Project.most_recent_five
+     @projects = @projects.order(created_at: :desc).page(params[:page])
   end
 
   def show
