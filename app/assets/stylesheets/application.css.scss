@@ -35,12 +35,24 @@ section {
    img {
    	 width: 100%;
    }
+
+   .start {
+	  position: absolute;
+	  bottom: 100px;
+	  left: 42.5%;
+   }
+
+   .description {
+   	  position: absolute;
+   	  color: #fff;
+   	  font-size: $font-size - .5rem;
+	  bottom: 200px;
+	  width: 60%;
+	  left: 20%;
+   }
+
 }
 
-.start {
-  position: absolute;
-  bottom: 100px;
-  left: 42.5%;
-}
+
 
 

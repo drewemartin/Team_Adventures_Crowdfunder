@@ -3,10 +3,10 @@ class Project < ActiveRecord::Base
   belongs_to :category
   has_many :rewards
   has_many :pledges, :through => :rewards
-<<<<<<< HEAD
+
 
   scope :most_recent_five, -> { all.limit(5) }
-=======
+
   validates :title, :start_time, :end_time, :description, :presence => true
   validates :title, length: {minimum: 3} 
   validates :description, length: {minimum: 4}
@@ -36,6 +36,4 @@ class Project < ActiveRecord::Base
 
   end
 
-
->>>>>>> 5a60ecc1fcb2e16e9be1c38bbc33257695177d04
 end

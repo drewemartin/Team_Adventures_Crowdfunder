@@ -5,8 +5,13 @@
     <% @most_recent_project.each do |latest_project| %>
     <li>
      <img src="http://lorempixel.com/900/300/technics/<%= latest_project.picture_url %>" alt="slide 2" />
+
+     <div class="description text-center">
+      <%= latest_project.description %>
+     </div>
+
       <div class="orbit-caption">
-        <%= link_to latest_project.title, project_path(latest_project)%>
+        <em>By <%= link_to latest_project.title, project_path(latest_project)%></em>
       </div>
     </li>
     <% end %>
