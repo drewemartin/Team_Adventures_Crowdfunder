@@ -1,2 +1,10 @@
 <h1>UserSessions#new</h1>
 <p>Find me in app/views/user_sessions/new.html.erb</p>
+<h1>Login</h1>
+
+<%= render 'form' %>
+	
+<%= link_to 'back', user_sessions_path %>
+
+<p>if you do not have an accout please create one here <strong><%=link_to "Create Account", new_user_path %></strong><p>
+

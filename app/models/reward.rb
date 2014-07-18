@@ -8,7 +8,7 @@ class Reward < ActiveRecord::Base
 
   private 
   def amount_unique_with_same_project_id
-
+      return if(project.nil?)
   	    has_duplication = false
   		if !Reward.all.empty?
 	  		id = project.id

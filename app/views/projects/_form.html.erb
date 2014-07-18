@@ -1,0 +1,56 @@
+<%= form_for @project do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <ul>
+        <% @project.errors.full_messages.each do |msg|%>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :title %>
+    <br/>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :goal %>
+    <br/>
+    <%= f.number_field :goal %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <br/>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %>
+    <br/>
+    <%= f.date_field :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %>
+    <br/>
+    <%= f.date_field :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :picture_url %>
+    <br/>
+    <%= f.text_field :picture_url %>
+  </div>
+    <div class="field">
+    <%= f.label "Category" %>
+    <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => false %>
+  </div>
+  <h3>Tasks</h3>
+  <div id="rewards">
+    <%= f.fields_for :rewards do |reward| %>
+      <%= render 'reward_fields', :f => reward %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add reward', f, :rewards %>
+    </div>
+  </div>
+  <%= f.submit %>
+<% end %>

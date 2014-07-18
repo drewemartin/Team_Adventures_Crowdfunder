@@ -1,0 +1,2 @@
+$('.project-grid').html("<%= j(render @projects)%>")
+$('#paginate').html("<%= j( paginate(@projects, :remote => true).to_s)%>");

@@ -5,51 +5,5 @@
 
 	<div class="medium-6 medium-offset-3 columns">
 		
-
 <h1>Add a Project</h1>
-
-
-
- <%= form_for(@project, html: {multipart: true}) do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-  
-  <div>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  <div>
-
-
-   <div class="field">
-    <%= f.label :start_time %>
-    <%= date_field(:user, :date) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :end_time %>
-    <%= date_field(:user, :date) %>
-  </div>
-
-  <div class="field">
-	  <%= f.label "Category" %>
-	  <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => false %>
-  </div>
-
-   <%= f.fields_for :rewards do |r| %>
-    <%= render 'reward_fields', :f => r %>
-  <% end %>
-  </div>
-
-  <div>
-    <%= link_to_add_association 'add reward', f, :rewards, class: 'button tiny round reward_btn' %>
-  </div><hr>
-  <%= f.submit class: 'button success radius small right' %>
-<% end %>
+<%= render 'form'  %>
