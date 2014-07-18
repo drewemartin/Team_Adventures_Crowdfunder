@@ -15,7 +15,7 @@
       <h4>Title: <%= @project[:title] %>  <span class="button alert round fund_raised">$ <%= @sum_of_amount %> Raised</span></h4><hr>
       <p><em>Descriptions:</em> <%= @project[:description] %></p>
       <p>Goal: pledge for $<%= @project.goal %></p>
-      <p>Currently Raised: </p>
+      <p>Currently Raised: <%= @sum_of_amount%></p>
       <p>Start Date: <%= @project.start_time.to_date  %></p>
       <p>End Date: <%= @project.end_time.to_date  %></p>
       <p>Dates left: <%= (@project.end_time.to_date - DateTime.now().to_date).to_i  %> </p>
@@ -118,7 +118,7 @@
                        <li>There are <span class="count_pledges"><%= reward.pledges.count %></span> backers for this reward</li>
                       <li class="cta-button">
                         <%= form_tag( pledges_path,{:method=>:post, :class => 'pledge_form'}) do%>
-                            <%= hidden_field_tag :user_id, "1" %>
+                            <%= hidden_field_tag :user_id, current_user.id %>
                             <%= hidden_field_tag :reward_id, reward.id %>
                             <%= submit_tag "Pledge", class: "button small alert radius pledge_button"%>
                         <% end %>    
