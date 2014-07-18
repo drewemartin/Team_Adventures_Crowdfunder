@@ -14,10 +14,10 @@
         
       <h4>Title: <%= @project[:title] %>  <span class="button alert round fund_raised" data-attribute-amount= <%= @sum_of_amount %>>$ <%= @sum_of_amount %> Raised</span></h4><hr>
 
-      <div id="el"></div><br>
+      <div id="el" data-attribute-el></div><br>
 
       <div class="progress round" data-attribute-progress>
-        <span class="meter" style=""></span>
+        <span class="meter"></span>
         <span id="goal" data-attribute-goal=<%= @project.goal %>><%= @project.goal %></span>
       </div>
      

@@ -32,21 +32,22 @@ $(document).on('ready page:load', function(){
         $.getScript($(this).attr('href'));
   });	
 
-     // Animate the element's value from 0% to 110%:
-      var goal = $('data-attribute-goal').val();
-      var value = $('data-attribute-amount').val();
+     // Goals animate
+      var goal = $('#goal').attr('data-attribute-goal'); 
+      var value = 67
+      // $('.fund_raised').attr('data-attribute-amount');
       var today = Date.new
       var meter_color = $('.meter').parent()
 
-      if (value <= 25) {
+      if (parseInt(value) <= 25) {
         meter_color.addClass('alert');
-       } else if (value <= 50) {
+       } else if (parseInt(value) <= 50) {
         meter_color.removeClass('alert');
        } else {
         meter_color.addClass('success');
        }
 
-      jQuery({someValue: 0}).animate({someValue: value}, {
+      jQuery({someValue: 0}).animate({someValue: parseInt(value)}, {
         duration: 1000,
         easing:'swing', // can be anything
         step: function() { // called on every step
@@ -56,8 +57,8 @@ $(document).on('ready page:load', function(){
 
     });
 
-      var percentage_goal = (value/goal)*100 + "%"
-      meter = $('.meter')
+      var percentage_goal = (parseInt(value)/parseInt(goal))*100 + "%"
+      meter = $('.meter');
       width = $('.meter').attr('style');
       meter.attr("style","width: 1%");
 
