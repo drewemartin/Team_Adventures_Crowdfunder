@@ -34,12 +34,9 @@ class ProjectsController < ApplicationController
   
   def show
     @rewards = @project.rewards
-    @sum_of_amount = @rewards.inject(0) do |sum, reward|
-
-      num_of_pledges = reward.pledges.count
-      sum_of_the_reward = num_of_pledges * reward.amount
-      sum + sum_of_the_reward
-    end
+    @sum_of_amount = calculate_sum_of_pledges(@project)
+    @current_user_amount_pledged = get_user_pledge_for_the_project
+    @total_supporters = get_total_supporters
   end  
 
   def create
@@ -61,6 +58,28 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
+    def get_user_pledge_for_the_project
+        all_pledges = @project.pledges
+        all_pledges.each do |pledge|
+           if pledge.user == User.first
+              return pledge.reward.amount
+           end
+        end
+        return 0
+    end
+
+    def get_total_supporters
+      @project.pledges.count
+    end 
+
+    def calculate_sum_of_pledges(project)
+        rewards = project.rewards
+        sum_of_amount = rewards.inject(0) do |sum, reward|
+            num_of_pledges = reward.pledges.count
+            sum_of_the_reward = num_of_pledges * reward.amount
+            sum + sum_of_the_reward
+        end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:title, :description, :goal, :start_time, :end_time, :picture_url, :category_id, rewards_attributes: [:amount, :description, :_destroy])

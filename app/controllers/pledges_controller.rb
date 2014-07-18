@@ -3,15 +3,12 @@ class PledgesController < ApplicationController
   def create
   		user = User.find(params[:user_id])
   		reward = Reward.find(params[:reward_id])
-  		p user
-  		p reward
   		@pledge = Pledge.new(user:user,reward:reward)
-  		p @pledge
   		respond_to do |format|
   			if @pledge.save
   				total = total_money_raised(@pledge)
-  				p total
-  				format.json{render json: total}
+          pledge_amount = @pledge.reward.amount
+  				format.json{render json: {total_pledged: total,pledge_amount: pledge_amount}}
   			else
   				format.json{render json: @pledge}
   			end

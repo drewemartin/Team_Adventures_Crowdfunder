@@ -3,6 +3,10 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on('ready page:load', function(){
 
+  if ($("#already_backed").length > 0){
+      $('.pledge_button').attr('value','Thank You'+ '\n' + 'for Your Pledge').addClass('disabled').attr('disabled','disabled');
+  }
+
 	$(".pledge_form").submit(function(event){
        _this = $(this)
       event.preventDefault();
@@ -12,17 +16,21 @@ $(document).on('ready page:load', function(){
       	dataType: 'json',
       	data: $(this).serialize()
             }).done(function(data){
-                  $('.fund_raised').text("$" + data + " Raised");
+                  console.log(data)
+                  $('.fund_raised').text("$" + data.total_pledged + " Raised");
+
                   $('.pledge_button').addClass('disabled').attr('disabled','disabled');       
                    _this.find('.pledge_button').attr('value', 'Thank You'+ '\n' + 'for Your Pledge');
+
+                  $('#user_pledge_state').html("<p>I have backed this project with $"+ data.pledge_amount +"</p>")
             });   
 
 	});
 
-      $('.category_link').click(function(event){
-            event.preventDefault()
-            $.getScript($(this).attr('href'));
-      });	
+  $('.category_link').click(function(event){
+        event.preventDefault()
+        $.getScript($(this).attr('href'));
+  });	
 
 
    

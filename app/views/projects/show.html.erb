@@ -12,9 +12,19 @@
     <div class="medium-8 columns">
 
         
-      <h4><%= @project[:title] %>  <span class="button alert round fund_raised">$ <%= @sum_of_amount %> Raised</span></h4><hr>
-      <p><%= @project[:description] %></p>
-
+      <h4>Title: <%= @project[:title] %>  <span class="button alert round fund_raised">$ <%= @sum_of_amount %> Raised</span></h4><hr>
+      <p><em>Descriptions:</em> <%= @project[:description] %></p>
+      <p>Goal: pledge for $<%= @project.goal %></p>
+      <p>Currently Raised: </p>
+      <p>Start Date: <%= @project.start_time.to_date  %></p>
+      <p>End Date: <%= @project.end_time.to_date  %></p>
+      <p>Dates left: <%= (@project.end_time.to_date - DateTime.now().to_date).to_i  %> </p>
+      <div id ="user_pledge_state" >      
+        <% if  @current_user_amount_pledged >0 %>
+        <p id ="already_backed">I have backed this project with $<%= @current_user_amount_pledged %></p>
+        <% end %>
+      </div>
+      <p>There are <span id="num_supporters"><%= @total_supporters%></span> supports for this project</p>
       </div>
 <hr>
   </div><!-- row -->
@@ -85,9 +95,7 @@
               </div>           
             </div><!-- panel -->
           </div>
-    
-
-
+  
     <div class="medium-8 columns">
 
       <div class="row">
@@ -95,8 +103,6 @@
           <h4 class="text-center">Pledge on this Project</h4>
         </div>
       </div>
-
- 
 
       <div class="row">
 
@@ -109,6 +115,7 @@
                       <li class="title">$<%= reward.amount %></li>
                       <li class="divider"></li>
                        <li class="description"><%=reward.description%></li>
+                       <li>There are <span class="count_pledges"><%= reward.pledges.count %></span> backers for this reward</li>
                       <li class="cta-button">
                         <%= form_tag( pledges_path,{:method=>:post, :class => 'pledge_form'}) do%>
                             <%= hidden_field_tag :user_id, "1" %>
