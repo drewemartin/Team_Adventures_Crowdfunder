@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :require_login, only: [:index, :show]
+  before_filter :ensure_logged_in, except: [:index, :show]
 
   def index
 

@@ -17,5 +17,12 @@ describe User do
 		firstUser = FactoryGirl.create(:user)
 		expect(FactoryGirl.build(:user, email: firstUser.email)).to_not be_valid
 	end
+	it "has many projects" do
+		user = FactoryGirl.create(:user)
+		expect(user).to respond_to(:projects)
+	end
+	it "has many pledges" do
+		user = FactoryGirl.create(:user)
+		expect(user).to respond_to(:pledges)
+	end
 end
-

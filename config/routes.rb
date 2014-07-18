@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+
+  post 'sessions/create'
+
+  delete 'sessions/destroy'
+
   root to: 'projects#index'
 
   resources :projects, :only =>[:new, :create, :index, :show]

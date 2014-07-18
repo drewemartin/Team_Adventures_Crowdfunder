@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_filter :require_login, only: [:new, :create]
+  before_filter :ensure_logged_in, :only => [:show, :edit, :update]
   def new
     @user = User.new
   end
@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(current_user.id), notice: "Signed up!"
+      redirect_to projects_path, notice: "Signed up!"
     else
       render 'new'
     end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(user_params)
     if @user.update_attribues
-      redirect_to user_path(@user.id)
+      redirect_to user_path(current_user.id), notice: 'your edits were'
     else
       render 'edit'
     end
@@ -32,6 +32,6 @@ class UsersController < ApplicationController
 
   private 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :biography, :phone, :username, :password, :password_confirmation)
   end
 end

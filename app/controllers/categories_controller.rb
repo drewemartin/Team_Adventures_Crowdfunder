@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
  before_action :set_category, only: [:show, :edit, :update, :destroy]
- skip_before_filter :require_login, only: [:index, :show]
+ before_filter :ensure_logged_in, :only => [:new, :create]
+
 
 
   def index
@@ -36,7 +37,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category.new(category_params)
-    if @category.save
+    if @category.save 
       redirect_to project_path(@category.id)
     else
       render 'new'

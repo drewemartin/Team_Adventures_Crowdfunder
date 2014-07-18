@@ -20,7 +20,18 @@
 			<%= f.label :phone %>
 			<%= f.text_field :phone %>
 		</div>
-		<%= f.submit class: 'button' %>
+		<div class="field">
+		  <%= f.label :password %>
+		  <%= f.password_field :password %>
+		</div>
+		<div class="field">
+		  <%= f.label :password_confirmation %>
+		  <%= f.password_field :password_confirmation %>
+		</div>
+		<div class="actions">
+			<%= submit_tag "Login" %>
+		</div>
+
 <% end %>	
 			
 	</div><!-- column -->
