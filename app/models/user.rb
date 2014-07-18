@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+has_secure_password
 
+    
   has_many :projects
   has_many :rewards, :through => :projects
   has_many :pledges
@@ -10,3 +11,4 @@ class User < ActiveRecord::Base
   validates :email, :presence => true
   validates :email, :uniqueness => true
 end
+

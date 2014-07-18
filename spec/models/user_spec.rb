@@ -25,5 +25,9 @@ describe User do
 		user = FactoryGirl.create(:user)
 		expect(user).to respond_to(:pledges)
 	end
+<<<<<<< HEAD
 end
 
+=======
+end
+>>>>>>> configuring_sorcery

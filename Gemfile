@@ -16,7 +16,7 @@ gem 'kaminari'
 gem 'handlebars_assets'
 gem 'high_voltage'
 gem 'bcrypt', '~> 3.1.7'
-gem 'sorcery'
+# gem 'sorcery'
 gem 'cocoon' 
 gem 'cancancan', '~> 1.8'
 

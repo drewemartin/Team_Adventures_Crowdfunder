@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+
+  post 'sessions/create'
+
+  delete 'sessions/destroy'
+
   root to: 'projects#index'
   
   resources :projects, :only =>[:new, :create, :index, :show]
@@ -8,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :categories, :only =>[:index, :show]
 
-  resources :user, :only =>[:new,:create, :show, :edit,:update]
+  resources :users, :only =>[:new, :create, :show, :edit, :update]
 
   resources :user_sessions, :only=>[:new,:create, :destroy]
 	get 'login' => 'user_sessions#new', :as => :login

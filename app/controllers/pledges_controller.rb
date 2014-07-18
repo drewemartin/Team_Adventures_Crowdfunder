@@ -1,4 +1,5 @@
 class PledgesController < ApplicationController
+	before_filter :ensure_logged_in, :only => [:create]
   def create
   		user = User.find(params[:user_id])
   		reward = Reward.find(params[:reward_id])
