@@ -5,7 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+User.delete_all
+Category.delete_all
+Project.delete_all
+Reward.delete_all
 
 
 categories = %w(Entertainment Film Music Art Fashion Food Games Photography)

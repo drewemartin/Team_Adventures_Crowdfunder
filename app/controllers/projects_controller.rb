@@ -41,8 +41,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    #!!!!!!!need to be change
-    @project.user = User.first
+    @project.user = current_user
     respond_to do |format|
       if @project.save
         format.html { redirect_to  project_path(@project), notice: 'Project was successfully created.' }
@@ -61,7 +60,7 @@ class ProjectsController < ApplicationController
     def get_user_pledge_for_the_project
         all_pledges = @project.pledges
         all_pledges.each do |pledge|
-           if pledge.user == User.first
+           if pledge.user == current_user
               return pledge.reward.amount
            end
         end
