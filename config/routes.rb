@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   resources :projects, :only =>[:new, :create, :index, :show]
 
-  resources :pledge, :only =>[:create]
+  resources :pledges, :only =>[:create]
 
   resources :categories, :only =>[:index, :show]
 

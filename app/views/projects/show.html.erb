@@ -102,38 +102,24 @@
 
          <div class="medium-12 columns">
 
-
             <div class="row">
-                <div class="medium-4 columns">
-                    <ul class="pricing-table">
-                      <li class="title">$10.00</li>
-                      <li class="divider"></li>
-                       <li class="description">An awesome description:Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</li>
-                      <li class="cta-button"><a class="button small radius" href="#">Plegde</a></li>                 
-                    </ul>
-                </div>
-
-                 <div class="medium-4 columns">
-                    <ul class="pricing-table">
-                      <li class="title">$20.00</li>
-                      <li class="divider"></li>
-                       <li class="description">An awesome description:Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</li>
-                      <li class="cta-button"><a class="button small success radius" href="#">Plegde</a></li>                 
-                    </ul>
-                </div>
-
+                <% @rewards.each do |reward|%>
                   <div class="medium-4 columns">
                     <ul class="pricing-table">
-                      <li class="title">$40.00</li>
+                      <li class="title">$<%= reward.amount %></li>
                       <li class="divider"></li>
-                       <li class="description">An awesome description:Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</li>
-                      <li class="cta-button"><a class="button small alert radius" href="#">Plegde</a></li>                 
+                       <li class="description"><%=reward.description%></li>
+                      <li class="cta-button">
+                        <%= form_tag( pledges_path,{:method=>:post, :class => 'pledge_form'}) do%>
+                            <%= hidden_field_tag :user_id, "1" %>
+                            <%= hidden_field_tag :reward_id, reward.id %>
+                            <%= submit_tag "Pledge", class: "button small alert radius pledge_button"%>
+                        <% end %>    
+                      </li>
                     </ul>
-                </div>
-
+                  </div>
+                <% end %>
+               
             </div>
           
         </div>

@@ -4,15 +4,25 @@ class ProjectsController < ApplicationController
   def index
 
   	@projects = if params[:search]
-        Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%")
+        Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%").order(created_at: :desc).page(params[:page])
+      elsif params[:category_id]
+        category = Category.find(params[:category_id])
+        category.projects.order(created_at: :desc).page(params[:page])
       else
-        Project.all
+        Project.order('projects.created_at DESC').page(params[:page])
       end
-
-  	 
+	 
   	 @categories = Category.all
   	 @most_recent_project = Project.most_recent_five
-     @projects = @projects.order(created_at: :desc).page(params[:page])
+    # @projects = @projects.order(created_at: :desc).page(params[:page])
+
+     puts @projects.count
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+
   end
 
   def new

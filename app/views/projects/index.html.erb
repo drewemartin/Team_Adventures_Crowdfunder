@@ -31,7 +31,7 @@
          <li><strong>Category</strong></li>
 
         <% @categories.each do |category| %> 
-          <li><%= link_to category.name, category_path(category) %></li>
+          <li><%= link_to category.name, projects_path, data: {remote: true, params: { category_id: category.id }.to_param }, class: "category_link" %></li>
        
          <% end %> 
 
@@ -44,17 +44,12 @@
       <ul class="breadcrumbs">
         <li><%= link_to "All Projects", projects_path %></li>
       </ul>
-
       <ul class="project-grid small-block-grid-3">
-        <% @projects.each do |project| %>
-    
-          <li><%= link_to image_tag('http://lorempixel.com/200/150/technics/' + project.picture_url), project_path(project) %></li>
-
-       <% end %>
+        <%= render @projects %>
       </ul>
 
       <div id="paginate">
-        <%= paginate @projects, :window => 2 %>
+        <%= paginate @projects,:remote => true %>
       </div>
 
     </div>
