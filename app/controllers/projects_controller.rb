@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    @project.rewards.build
+    #@project.rewards.build
   end
 
   
@@ -43,14 +43,13 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-
+    #!!!!!!!need to be change
+    @project.user = User.first
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
+        format.html { redirect_to  project_path(@project), notice: 'Project was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -63,6 +62,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :description, :goal, :start_time, :end_time, :picture_url)
+      params.require(:project).permit(:title, :description, :goal, :start_time, :end_time, :picture_url, :category_id, rewards_attributes: [:amount, :description, :_destroy])
     end
 end
