@@ -34,8 +34,7 @@ $(document).on('ready page:load', function(){
 
      // Goals animate
       var goal = $('#goal').attr('data-attribute-goal'); 
-      var value = 67
-      // $('.fund_raised').attr('data-attribute-amount');
+      var value = $('.fund_raised').attr('data-attribute-amount');
       var today = Date.new
       var meter_color = $('.meter').parent()
 
