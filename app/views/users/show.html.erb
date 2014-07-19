@@ -10,6 +10,8 @@
 	<button>"edit account"</button>
 <% end %>
 
+
+
 <div class="backed_projects">
 	<table>
 		<tr>
@@ -36,8 +38,9 @@
 			<% @user.projects.each do |project| %>
 				<tr>
 					<td><%= project.title %></td>
-					<td></td>
-					<td></td>
+					<td><%= project.goal %></td>
+					<td><%= funding_count(project.rewards) %></td>
+					<% end %>
 				</tr>
 			<% end %>
 		</tr>
