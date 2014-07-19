@@ -70,7 +70,7 @@
       <ul class="pricing-table">
         <li class="price">Goal:$<%= @project.goal %></li>
         <li class="description"><em>Descriptions:</em> <%= @project[:description] %></em></li>
-        <li class="bullet-item">Currently Raised: $<%= @sum_of_amount%></li>
+        <li class="bullet-item">Currently Raised: $<%= @sum_of_amount %></li>
         <li class="bullet-item">There are <span id="num_supporters"><%= @total_supporters%></span> supports for this project</li>
  
       </ul>
@@ -162,7 +162,7 @@
 
             <div class="row" data-equalizer>
                 <% @rewards.each do |reward|%>
-                  <div class="medium-4 columns">
+                  <div class="medium-4 columns end">
                     <ul class="pricing-table" data-equalizer-watch>
                       <li class="title">$<%= reward.amount %></li>
                       <li class="divider"></li>

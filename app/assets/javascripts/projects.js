@@ -37,13 +37,18 @@ $(document).on('ready page:load', function(){
       var value = $('.fund_raised').attr('data-attribute-amount');
       var today = Date.new
       var meter_color = $('.meter').parent()
+      var thumb_meter_color = $('.thumb_meter').parent()
+
 
       if (parseInt(value) <= 25) {
         meter_color.addClass('alert');
+        thumb_meter_color.addClass('alert');
        } else if (parseInt(value) <= 50) {
         meter_color.removeClass('alert');
+        thumb_meter_color.removeClass('alert');
        } else {
         meter_color.addClass('success');
+        thumb_meter_color.removeClass('alert');
        }
 
       jQuery({someValue: 0}).animate({someValue: parseInt(value)}, {
@@ -58,9 +63,10 @@ $(document).on('ready page:load', function(){
 
       var percentage_goal = (parseInt(value)/parseInt(goal))*100 + "%"
       meter = $('.meter');
+      thumb_meter = $('.thumb_meter');
       width = $('.meter').attr('style');
-      meter.attr("style","width: 1%");
-
+      thumb_meter.attr("style",percentage_goal);
+      thumb_meter.css('color', '#666');
 
         meter.animate({
           duration: 4000,

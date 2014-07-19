@@ -1,7 +1,24 @@
+
 <li>
-	<%= link_to image_tag('http://lorempixel.com/200/150/technics/' + project.picture_url), project_path(project) %>
-	<p>Goal:$<%= project.goal %></p>
-	<p>Days Left: <%= (project.end_time.to_date - DateTime.now.to_date).to_i %></p>
+<div class="th img">
+
+
+	<%= link_to image_tag("http://lorempixel.com/300/250/technics/" + project.picture_url), project_path(project)%>
+
+    <div class="overlay">
+       
+        <a href="#" class="expanded"><%= project.rewards.count %><span> raised</span></a>
+        <a class="close-overlay hidden">x</a>
+    </div>
+
+
+    <p class="title text-center">days Left: <%= (project.end_time.to_date - DateTime.now.to_date).to_i %></p><br>
+
+   <div class="progress">
+  	 	<span class="meter thumb_meter" style="width:10%"></span>
+	</div>
+
+</div>
 
 </li>
 
