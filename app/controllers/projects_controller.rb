@@ -37,6 +37,9 @@ class ProjectsController < ApplicationController
     @sum_of_amount = calculate_sum_of_pledges(@project)
     @current_user_amount_pledged = get_user_pledge_for_the_project
     @total_supporters = get_total_supporters
+    if current_user
+      @review = @project.reviews.build
+    end
   end  
 
   def create
