@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
+  get 'reviews/index'
 
-  post 'sessions/create'
+  get 'reviews/show'
 
-  delete 'sessions/destroy'
+  get 'reviews/new'
+
+  get 'reviews/create'
+
+  get 'sessions/'
+
+  post 'sessions/'
+
+  delete 'sessions/'
 
   root to: 'projects#index'
+
+  resources :sessions, :only => [:destroy, :create, :new]
   
   resources :projects, :only =>[:new, :create, :index, :show]
 
