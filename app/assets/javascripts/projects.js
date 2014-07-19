@@ -33,12 +33,12 @@ $(document).on('ready page:load', function(){
   });	
 
      // Goals animate
-      var goal = $('#goal').attr('data-attribute-goal'); 
+      var goal = $('.goal').attr('data-attribute-goal'); 
       var value = $('.fund_raised').attr('data-attribute-amount');
       var today = Date.new
       var meter_color = $('.meter').parent()
       var thumb_meter_color = $('.thumb_meter').parent()
-
+     
 
       if (parseInt(value) <= 25) {
         meter_color.addClass('alert');
@@ -57,6 +57,7 @@ $(document).on('ready page:load', function(){
         step: function() { // called on every step
           // Update the element's text with rounded-up value:
           $('#el').text(Math.ceil(this.someValue)+ "% of the goal reached");
+
        }
 
     });
@@ -65,7 +66,6 @@ $(document).on('ready page:load', function(){
       meter = $('.meter');
       thumb_meter = $('.thumb_meter');
       width = $('.meter').attr('style');
-      thumb_meter.attr("style",percentage_goal);
       thumb_meter.css('color', '#666');
 
         meter.animate({
@@ -73,7 +73,13 @@ $(document).on('ready page:load', function(){
           width: percentage_goal,
           easing:'swing' // can be anything
 
-        });
-   
+        }); 
+
+         thumb_meter.animate({
+          duration: 4000,
+          width: percentage_goal,
+          easing:'swing' // can be anything
+
+        }); 
 
 });
