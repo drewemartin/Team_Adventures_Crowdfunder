@@ -6,7 +6,7 @@
 
 <p><%= @user.biography %></p>
 
-<%= link_to user_path(@user.id) do  %>
+<%= link_to edit_user_path(@user.id) do  %>
 	<button>"edit account"</button>
 <% end %>
 
@@ -37,7 +37,7 @@
 			<td>Current Amount</td>
 			<% @user.projects.each do |project| %>
 				<tr>
-					<td><%= project.title %></td>
+					<td><%= link_to project.title, project_path(project.id) %></td>
 					<td><%= project.goal %></td>
 					<td><%= funding_count(project.rewards) %></td>
 				</tr>

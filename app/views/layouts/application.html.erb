@@ -14,7 +14,7 @@
 
  
        <%= yield %>
-            <p class="userinfo">
+    <p class="userinfo">
       <% if current_user %>
         Signed in as <%= current_user.email %>. <%= link_to "Log out", sessions_destroy_path("current"), :method => :delete %>
       <%= link_to "User Page", user_path(current_user.id) %>
@@ -22,6 +22,12 @@
         <%= link_to "Log in", sessions_new_path %> or <%= link_to "Sign up", new_user_path %>
       <% end %>
     </p>
+
+    <%= link_to root_path do  %>
+  <button>"Home"</button>
+<% end %>
+
+
 
     </div><!-- container -->
   </body>
