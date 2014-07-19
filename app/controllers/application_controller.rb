@@ -17,5 +17,14 @@ class ApplicationController < ActionController::Base
 	@current_user ||= User.find(session[:user_id]) if session[:user_id] 	
   end
 
+  def funding_count(project_rewards)
+    ary = []
+    project_rewards.each do |rewards|
+      ary.push(rewards.pledges.count * rewards.amount)
+    end
+    return ary.reduce(:+)
+  end
+
   helper_method :current_user
+  helper_method :funding_count
 end
