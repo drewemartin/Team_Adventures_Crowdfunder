@@ -1,2 +1,48 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<p><%= @user.username %></p>
+<p><%= @user.email %></p>
+
+<p><%= @user.biography %></p>
+
+<%= link_to edit_user_path(@user.id) do  %>
+	<button>"edit account"</button>
+<% end %>
+
+
+
+<div class="backed_projects">
+	<table>
+		<tr>
+			<td>Project Name</td>
+			<td>Amount Pledged</td>
+			<td>Reward</td>
+		</tr>
+		<% @user.pledges.each do |pledge| %>
+			<tr> 
+				<td><%= pledge.reward.project.title %></td>
+				<td><%= pledge.reward.amount %></td>
+				<td><%= pledge.reward.description %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+<br>
+<div class="owned_projects">
+	<table>
+		<tr>
+			<td>Project Name</td>
+			<td>Project Goal</td>
+			<td>Current Amount</td>
+			<% @user.projects.each do |project| %>
+				<tr>
+					<td><%= link_to project.title, project_path(project.id) %></td>
+					<td><%= project.goal %></td>
+					<td><%= funding_count(project.rewards) %></td>
+				</tr>
+			<% end %>
+		</tr>
+	</table>
+</div>
+
