@@ -8,7 +8,7 @@ class PledgesController < ApplicationController
   			if @pledge.save
   				total = total_money_raised(@pledge)
           pledge_amount = @pledge.reward.amount
-  				format.json{render json: {total_pledged: total,pledge_amount: pledge_amount}}
+  				format.json{render json: {total_pledged: total, pledge_amount: pledge_amount}}
   			else
   				format.json{render json: @pledge}
   			end
