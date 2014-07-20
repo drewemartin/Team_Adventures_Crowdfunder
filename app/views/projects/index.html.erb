@@ -47,6 +47,8 @@
 
       </ul>
 
+      
+
     </div>
 
     <div class="medium-10 columns">
@@ -54,9 +56,14 @@
       <ul class="breadcrumbs">
         <li><%= link_to "All Projects", projects_path %></li>
       </ul>
-      <ul class="project-grid small-block-grid-3">
+    
+   
+    <div id="effect-6" class="effects clearfix">
+       <ul class="small-block-grid-3">
         <%= render @projects %>
       </ul>
+    </div>
+ 
 
       <div id="paginate">
         <%= paginate @projects,:remote => true %>

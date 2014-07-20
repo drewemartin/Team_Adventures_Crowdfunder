@@ -29,6 +29,10 @@ section {
 	margin:0;
 }
 
+.userinfo li {
+	color: #fff;
+}
+
 
 #slider {
   position: relative;
@@ -72,6 +76,59 @@ section {
 		color: #666;
 	}
 
+}
+
+#effect-6 .overlay a.expand {
+  font-size: 1rem;
+}
+
+
+#effect-6 .overlay a.expanded {
+font-size: 1rem;
+}
+#effect-6 .overlay a.expanded {
+left: 0;
+right: 0;
+top: 0;
+margin: 0 auto;
+opacity: 0;
+-webkit-transition: all 0.5s;
+-moz-transition: all 0.5s;
+-o-transition: all 0.5s;
+transition: all 0.5s;
+}
+a.expanded {
+/* display: block; */
+position: absolute;
+/* z-index: 100; */
+width: 110px;
+height: 50px;
+border: solid 5px #43ac6a;
+text-align: center;
+color: #43ac6a;
+line-height: 20px;
+font-weight: 700;
+font-size: 20px;
+-webkit-border-radius: 30px;
+-moz-border-radius: 30px;
+-ms-border-radius: 30px;
+-o-border-radius: 30px;
+border-radius: 30px;
+}
+
+.expanded span {
+  display: block;
+}
+
+p.title {
+  margin-bottom: 0;
+  display: block;
+}
+
+#el{
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
 }
 
 

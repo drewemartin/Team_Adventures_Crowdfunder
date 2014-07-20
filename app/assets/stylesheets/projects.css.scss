@@ -12,6 +12,10 @@ $red_shade: #ff4c4c;
   font-size: $font-size;
 }
 
+.pricing-table .description {
+  height: 8rem;
+  padding: 3%;
+}
 
 .pledge {
   border-top: 1px solid #ccc;
@@ -133,10 +137,24 @@ transition: all .8s;
   border: 2px solid $red_shade;
 }
 
+.title {
+  padding: 1%;
+}
+
 #el{
   font-size:20px;
 }
 
 #goal{
   display:none;
+}
+
+.table span {
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.project_title .label {
+  padding: 2% 4%;
+  margin-top: 10px;
 }

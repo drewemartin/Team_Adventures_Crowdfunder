@@ -3,7 +3,7 @@
   <nav class="top-bar" data-topbar>
     <ul class="title-area">
       <li class="name">
-        <h1><%= link_to "CROWDFUNDER", root_url %></h1>
+        <h1><a href="<%= root_url %>">CROWDFUNDER</a></h1>
       </li>
        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -42,11 +42,16 @@
       </ul>
 
       <!-- Right Nav Section -->
-      <ul class="right">
-        <li><a href="#">Sign In</a></li>
-        <li><a href="#">Sign Up</a></li>
+      <ul class="right userinfo">
+         <% if current_user %>
+            <li><%= link_to "Hi! #{current_user.username}", user_path(current_user) %></li>
+            <li><%= link_to "Log out", sessions_destroy_path("current"), :method => :delete %> </li> 
+          <% else %>
+         <li><%= link_to "Log in", sessions_new_path %></li>
+         <li> <%= link_to "Sign up", new_user_path %></li>
+
+         <% end %>
       </ul>
     </section>
   </nav>
 </div><!-- fixed navbar -->
-<div class="margin"></div>

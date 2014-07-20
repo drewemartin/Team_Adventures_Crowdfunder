@@ -33,17 +33,22 @@ $(document).on('ready page:load', function(){
   });	
 
      // Goals animate
-      var goal = $('#goal').attr('data-attribute-goal'); 
+      var goal = $('.goal').attr('data-attribute-goal'); 
       var value = $('.fund_raised').attr('data-attribute-amount');
       var today = Date.new
       var meter_color = $('.meter').parent()
+      var thumb_meter_color = $('.thumb_meter').parent()
+     
 
       if (parseInt(value) <= 25) {
         meter_color.addClass('alert');
+        thumb_meter_color.addClass('alert');
        } else if (parseInt(value) <= 50) {
         meter_color.removeClass('alert');
+        thumb_meter_color.removeClass('alert');
        } else {
         meter_color.addClass('success');
+        thumb_meter_color.removeClass('alert');
        }
 
       jQuery({someValue: 0}).animate({someValue: parseInt(value)}, {
@@ -52,22 +57,29 @@ $(document).on('ready page:load', function(){
         step: function() { // called on every step
           // Update the element's text with rounded-up value:
           $('#el').text(Math.ceil(this.someValue)+ "% of the goal reached");
+
        }
 
     });
 
       var percentage_goal = (parseInt(value)/parseInt(goal))*100 + "%"
       meter = $('.meter');
+      thumb_meter = $('.thumb_meter');
       width = $('.meter').attr('style');
-      meter.attr("style","width: 1%");
-
+      thumb_meter.css('color', '#666');
 
         meter.animate({
           duration: 4000,
           width: percentage_goal,
           easing:'swing' // can be anything
 
-        });
-   
+        }); 
+
+         thumb_meter.animate({
+          duration: 4000,
+          width: percentage_goal,
+          easing:'swing' // can be anything
+
+        }); 
 
 });
