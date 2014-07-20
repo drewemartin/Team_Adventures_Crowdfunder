@@ -38,7 +38,7 @@ user = User.where(:username => "sandy").first
 10.times do |title, description, goal, start_time, end_time, picture_url, category, user|
   start_time = DateTime.now + 7.hours
   end_time = DateTime.now + 3.days
-  goal = 10
+  goal =  rand(10..1000)
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)
@@ -60,7 +60,7 @@ end
 10.times do |title, description, goal, start_time, end_time, picture_url, category, user|
   start_time = DateTime.now + 7.hours
   end_time = DateTime.now + 3.days
-  goal = 20
+  goal =  rand(10..1000)
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)
@@ -81,7 +81,7 @@ end
 10.times do |title, description, goal, start_time, end_time, picture_url, category, user|
   start_time = DateTime.now + 7.hours
   end_time = DateTime.now + 3.days
-  goal = 45
+  goal =  rand(10..1000)
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)
@@ -123,7 +123,7 @@ end
 10.times do |title, description, goal, start_time, end_time, picture_url, category, user|
   start_time = DateTime.now + 7.hours
   end_time = DateTime.now + 3.days
-  goal = 56
+  goal =  rand(10..1000)
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)
@@ -144,7 +144,7 @@ end
 10.times do |title, description, goal, start_time, end_time, picture_url, category, user|
   start_time = DateTime.now + 7.hours
   end_time = DateTime.now + 3.days
-  goal = 78
+  goal = rand(10..1000)
   title = Faker::Company.name
   description = Faker::Lorem.paragraph
   picture_url = rand(1..9)

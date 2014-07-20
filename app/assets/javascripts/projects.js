@@ -36,8 +36,8 @@ $(document).on('ready page:load', function(){
       var goal = $('.goal').attr('data-attribute-goal'); 
       var value = $('.fund_raised').attr('data-attribute-amount');
       var today = Date.new
-      var meter_color = $('.meter').parent()
-      var thumb_meter_color = $('.thumb_meter').parent()
+      var meter_color = $('.meter').parent();
+      var thumb_meter_color = $('.thumb_meter').parent();
      
 
       if (parseInt(value) <= 25) {
@@ -76,7 +76,7 @@ $(document).on('ready page:load', function(){
         }); 
 
          thumb_meter.animate({
-          duration: 4000,
+          duration: 8000,
           width: percentage_goal,
           easing:'swing' // can be anything
 
