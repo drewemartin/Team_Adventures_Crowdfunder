@@ -118,7 +118,9 @@
                        <li>There are <span class="count_pledges"><%= reward.pledges.count %></span> backers for this reward</li>
                       <li class="cta-button">
                         <%= form_tag( pledges_path,{:method=>:post, :class => 'pledge_form'}) do%>
+                              <% if !current_user.nil? %>
                             <%= hidden_field_tag :user_id, current_user.id %>
+                              <% end%>
                             <%= hidden_field_tag :reward_id, reward.id %>
                             <%= submit_tag "Pledge", class: "button small alert radius pledge_button"%>
                         <% end %>    
@@ -155,6 +157,7 @@
   <% end %>
   </div>
   <div>
+    <% if current_user%>
       <h4>New Review</h4>
 
   <%= form_for([@project, @review]) do |f| %>
@@ -168,4 +171,7 @@
     </div>
   <% end %>
 
+  <% else %>
+  <p>Please <%= link_to "login", new_session_path %> to add a review</p>
+<% end %>
   </div>

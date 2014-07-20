@@ -32,16 +32,16 @@ $(document).on('ready page:load', function(){
         $.getScript($(this).attr('href'));
   });	
 
-  $('#new_review').submit(function(event)){
-    event.preventDefault();
+  // $('#new_review').submit(function(event)){
+  //   event.preventDefault();
 
-    $.ajax({
-      url: $(this).attr('action'),
-      type: 'POST',
-      dataType: 'json',
-      data
-    })
-  }
+  //   $.ajax({
+  //     url: $(this).attr('action'),
+  //     type: 'POST',
+  //     dataType: 'json',
+  //     data
+  //   })
+  // }
    
 
 });
