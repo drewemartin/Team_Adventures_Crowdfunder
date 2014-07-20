@@ -13,11 +13,9 @@ class ProjectsController < ApplicationController
         Project.order('projects.created_at DESC').page(params[:page])
       end
 	 
-  	 @categories = Category.all
-  	 @most_recent_project = Project.most_recent_five
-    # @projects = @projects.order(created_at: :desc).page(params[:page])
+  	@categories = Category.all
+  	@most_recent_project = Project.most_recent_five
 
-     puts @projects.count
     respond_to do |format|
       format.html
       format.js
@@ -28,7 +26,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    #@project.rewards.build
   end
 
   
