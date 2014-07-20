@@ -39,6 +39,7 @@ $(document).on('ready page:load', function(){
         $.getScript($(this).attr('href'));
   });	
 
+<<<<<<< HEAD
      // Goals animate
       var goal = $('.goal').attr('data-attribute-goal'); 
       var value = $('.fund_raised').attr('data-attribute-amount');
@@ -88,5 +89,18 @@ $(document).on('ready page:load', function(){
           easing:'swing' // can be anything
 
         }); 
+
+  // $('#new_review').submit(function(event)){
+  //   event.preventDefault();
+
+  //   $.ajax({
+  //     url: $(this).attr('action'),
+  //     type: 'POST',
+  //     dataType: 'json',
+  //     data
+  //   })
+  // }
+   
+
 
 });
