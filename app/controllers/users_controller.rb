@@ -22,16 +22,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(user_params)
-    if @user.update_attribues
-      redirect_to user_path(current_user.id), notice: 'your edits were'
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to user_path(current_user.id), notice: 'your edits were saved'
     else
       render 'edit'
     end
   end
 
   private 
+
   def user_params
     params.require(:user).permit(:email, :biography, :phone, :username, :password, :password_confirmation)
   end
+
+
 end
