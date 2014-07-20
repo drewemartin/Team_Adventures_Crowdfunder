@@ -45,11 +45,8 @@
            <span class="button alert round fund_raised" data-attribute-amount= <%= @sum_of_amount %>>$ <%= @sum_of_amount %> Raised</span>
         </div>
         
-<<<<<<< HEAD
       </div><!-- row -->
-
       <div class="row">
-
         <table class="table">
           <thead>
             <tr>
@@ -58,41 +55,21 @@
               <th width="250">Days left: <span><%= (@project.end_time.to_date - DateTime.now().to_date).to_i %></span></th>
             </tr>
           </thead>
-        </table
-
+        </table>
       </div>
-
-
-
-      <hr>
-     
-      <p></p>  
-
+      <hr>   
       <ul class="pricing-table">
         <li class="price">Goal:$<%= @project.goal %></li>
         <li class="description"><em>Descriptions:</em> <%= @project[:description] %></em></li>
         <li class="bullet-item">Currently Raised: $<%= @sum_of_amount %></li>
-        <li class="bullet-item">There are <span id="num_supporters"><%= @total_supporters%></span> supports for this project</li>
- 
-      </ul>
-    
-     
-  
-=======
-      <h4>Title: <%= @project[:title] %>  <span class="button alert round fund_raised">$ <%= @sum_of_amount %> Raised</span></h4><hr>
-      <p><em>Descriptions:</em> <%= @project[:description] %></p>
-      <p>Goal: pledge for $<%= @project.goal %></p>
-      <p>Currently Raised: <%= @sum_of_amount%></p>
-      <p>Start Date: <%= @project.start_time.to_date  %></p>
-      <p>End Date: <%= @project.end_time.to_date  %></p>
-      <p>Dates left: <%= (@project.end_time.to_date - DateTime.now().to_date).to_i  %> </p>
-      <p id ="user_pledge_state" data-amount-pledged =<%= @current_user_amount_pledged%>>      
+        <li id ="user_pledge_state" data-amount-pledged =<%= @current_user_amount_pledged%>>      
         <% if  @current_user_amount_pledged >0 %>
         I have backed this project with $<%= @current_user_amount_pledged %>
         <% end %>
-      </p>
-      <p>There are <span id="num_supporters" data-num-supporters=<%= @total_supporters%>><%= @total_supporters%></span> supports for this project</p>
->>>>>>> project_controller
+        </li>
+        <li class="bullet-item">There are <span id="num_supporters" data-num-supporters=<%= @total_supporters%>><%= @total_supporters%></span> supports for this project</li>
+      </ul>   
+
       </div>
 <hr>
   </div><!-- row -->
@@ -185,6 +162,7 @@
                        <li class="description"><%=reward.description%></li>
                        <li class="count_pledges" data-pledge-count= <%= reward.pledges.count %>><%= reward.pledges.count %> backers</li>
                        <% if current_user %>
+
                       <li class="cta-button">
                         <%= form_tag( pledges_path,{:method=>:post, :class => 'pledge_form'}) do%>
                             <%= hidden_field_tag :user_id, current_user.id %>
