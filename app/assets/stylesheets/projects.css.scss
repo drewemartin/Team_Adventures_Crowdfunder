@@ -137,9 +137,10 @@ transition: all .8s;
   border: 2px solid $red_shade;
 }
 
+
 .title {
   padding: 1%;
-  font-size: .9rem;
+  font-size: .7rem;
 }
 
 #el{
@@ -148,6 +149,13 @@ transition: all .8s;
 
 #goal{
   display:none;
+}
+
+.days {
+  padding-left: 10px;
+}
+.fund_raised {
+   padding-right: 10px;
 }
 
 .table span {
