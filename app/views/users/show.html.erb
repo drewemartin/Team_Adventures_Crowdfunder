@@ -1,48 +1,70 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="margin"></div>
+<div class="row">
 
-<p><%= @user.username %></p>
-<p><%= @user.email %></p>
+	<div class="medium-8 profile">
 
-<p><%= @user.biography %></p>
+		<h1>My Profile</h1><hr>
 
-<%= link_to edit_user_path(@user.id) do  %>
-	<button>"edit account"</button>
-<% end %>
+		<div class="row">
+
+				<div class="medium-6 columns">
+					<ul class="no-bullet">
+						<li><strong>Username:</strong> <%= @user.username %></li>
+						<li><strong>Email:</strong> <%= @user.email %></li>
+						<li><strong>Biography:</strong> <%= @user.biography %></li>
+					</ul>
+				</div>
+
+
+				<div class="medium-6 columns"><br>
+
+					 <%= link_to edit_user_path(@user.id) do  %>
+						<button class='round'>Edit account</button>
+					<% end %>
+				</div>
+
+		</div><hr>
+	
 
 
 
-<div class="backed_projects">
-	<table>
-		<tr>
-			<td>Project Name</td>
-			<td>Amount Pledged</td>
-			<td>Reward</td>
-		</tr>
-		<% @user.pledges.each do |pledge| %>
-			<tr> 
-				<td><%= pledge.reward.project.title %></td>
-				<td><%= pledge.reward.amount %></td>
-				<td><%= pledge.reward.description %></td>
-			</tr>
-		<% end %>
-	</table>
-</div>
-<br>
-<div class="owned_projects">
-	<table>
-		<tr>
-			<td>Project Name</td>
-			<td>Project Goal</td>
-			<td>Current Amount</td>
-			<% @user.projects.each do |project| %>
+		<div class="backed_projects">
+			<table>
+			  <thead>
 				<tr>
-					<td><%= link_to project.title, project_path(project.id) %></td>
-					<td><%= project.goal %></td>
-					<td><%= funding_count(project.rewards) %></td>
+					<th width="150">Project Name</th>
+					<th width="80">Amount Pledged</th>
+					<th width="500">Reward</th>
 				</tr>
-			<% end %>
-		</tr>
-	</table>
+			  </thead>
+				<% @user.pledges.each do |pledge| %>
+					<tr> 
+						<td><strong><%= pledge.reward.project.title %></strong></td>
+						<td><%= pledge.reward.amount %></td>
+						<td><%= pledge.reward.description %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+		<br>
+		<div class="owned_projects">
+			<table>
+				<thead>
+				  <tr>
+					<td width="150">Project Name</td>
+					<td  width="80">Project Goal</td>
+					<td width="500">Current Amount</td>
+				  </tr>
+			    </thead>
+					<% @user.projects.each do |project| %>
+						<tr>
+							<td><%= link_to project.title, project_path(project.id) %></td>
+							<td><%= project.goal %></td>
+							<td><%= funding_count(project.rewards) %></td>
+						</tr>
+					<% end %>
+				</tr>
+			</table>
+		</div>
+ </div>
 </div>
-

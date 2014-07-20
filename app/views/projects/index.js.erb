@@ -1,7 +1,8 @@
-$('.all_projects').html("<div id='effect-6' class='effects all_projects clearfix'> <ul class='small-block-grid-3'> <%=  j(render @projects)%> </ul></div>")
+$('.all_projects').html(
+	"<ul class='small-block-grid-3'><%=  j(render @projects)%></ul>")
 <%if @category%>
 	console.log("<%=@category.get_money_raised_for_the_category%>")
-	$("#money-raised-for-the-category").html("There are $<%=@category.get_money_raised_for_the_category%> raised for category <%=@category.name %>")
+	$("#money-raised-for-the-category").html("<span class='label round'>Category: <strong><%=@category.name %></strong> - $<%=@category.get_money_raised_for_the_category%> raised</span>")
 <%end%>
 $('#paginate').html("<%= j( paginate(@projects, :remote => true).to_s)%>");
 

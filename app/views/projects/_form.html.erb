@@ -42,15 +42,15 @@
     <div class="field">
     <%= f.label "Category" %>
     <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => false %>
-  </div>
-  <h3>Tasks</h3>
+  </div><hr>
+
   <div id="rewards">
     <%= f.fields_for :rewards do |reward| %>
       <%= render 'reward_fields', :f => reward %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association 'add reward', f, :rewards %>
+      <%= link_to_add_association 'add reward', f, :rewards, class: 'button tiny round' %>
     </div>
   </div>
-  <%= f.submit %>
+  <%= f.submit class: 'button success small radius right', value: 'Add Project' %><br><hr>
 <% end %>
