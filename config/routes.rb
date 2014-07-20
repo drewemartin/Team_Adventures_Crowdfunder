@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   resources :users, :only =>[:new, :create, :show, :edit, :update]
 
   resources :user_sessions, :only=>[:new,:create, :destroy]
-	get 'login' => 'user_sessions#new', :as => :login
-	post 'logout' => 'user_sessions#destroy', :as => :logout
+  get 'login' => 'user_sessions#new', :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
 
 
 end

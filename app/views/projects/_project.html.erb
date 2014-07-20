@@ -13,7 +13,7 @@
 
 
     <p class="title"><span class="text-left"><%= (project.end_time.to_date - DateTime.now.to_date).to_i %> days left</span><span class="right fund_raised" id="value" data-attribute-amount>$<%= @hash_amount_project[project.id] %></span></p><br>
-    <span class="goal" style="display:none"data-attribute-goal><%= project.goal %></span>
+    <span class="goal" style="display:none" data-attribute-goal><%= project.goal %></span>
 
    <div class="progress round">
   	 	<span class="meter thumb_meter" style="width: 1%"></span>
