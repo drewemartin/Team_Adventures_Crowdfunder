@@ -39,14 +39,16 @@
            <%= link_to "Start a New Project", new_project_path, class: 'button success large radius' %>
         </li>
 
-        <li>
-          <%= link_to "Total money raised for all projectes : $#{get_total_money_raised}", "#", class: 'button success large radius' %>
-        </li>
+        
         
       </ul>
 
       <ul class="number_projects"> 
-        <li><h4 id='fully-fund-project-count' data-fully-fund-projects='<%=get_successfully_fund_projects.count%>'></h4></li>
+        <li>
+          <%= link_to "Total money raised for all projectes : $#{get_total_money_raised}", "#", class: 'button large radius' %>
+        </li>
+
+      <!--   <li><p id='fully-fund-project-count' style="color:white" data-fully-fund-projects='<%=get_successfully_fund_projects.count%>'></p></li> -->
       </ul>
 
       <!-- Right Nav Section -->
