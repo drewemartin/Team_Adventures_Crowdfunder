@@ -13,11 +13,15 @@ class ReviewsController < ApplicationController
   	@review = @project.reviews.build(review_params)
   	@review.user_id = current_user.id
 
-  	if @review.save
-  		redirect_to project_path(@project.id), notice: "thanks, your comment was saved"
-  	else
-  		render 'projects/show'
-  	end
+  	respond_to do |format|
+      if @review.save
+        format.html {redirect_to project_path(@project.id), notice: "Your comment was saved"}
+        format.js {}
+      else
+        format.html {render 'projects/show', alert: "there was a an error"}
+        format.js {}
+      end
+    end
   end
 
   private
