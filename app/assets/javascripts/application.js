@@ -49,4 +49,17 @@ $(function() {
                 $(this).removeClass("hover");
             });
         }
+
+
+      jQuery({someValue: 0}).animate({someValue: 180}, {
+        duration: 1000,
+        easing:'swing', // can be anything
+        step: function() { // called on every step
+          // Update the element's text with rounded-up value:
+          $('.number').text(Math.ceil(this.someValue)+ " projects funded");
+
+       }
+
+    });
+
     });

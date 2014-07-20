@@ -39,7 +39,7 @@ $(document).on('ready page:load', function(){
         $.getScript($(this).attr('href'));
   });	
 
-<<<<<<< HEAD
+
      // Goals animate
       var goal = $('.goal').attr('data-attribute-goal'); 
       var value = $('.fund_raised').attr('data-attribute-amount');
@@ -89,6 +89,20 @@ $(document).on('ready page:load', function(){
           easing:'swing' // can be anything
 
         }); 
+
+
+         
+      jQuery({someValue: 0}).animate({someValue: 180}, {
+        duration: 1000,
+        easing:'swing', // can be anything
+        step: function() { // called on every step
+          // Update the element's text with rounded-up value:
+          $('.number').text(Math.ceil(this.someValue)+ " of projects funded");
+
+       }
+
+    });
+
 
   // $('#new_review').submit(function(event)){
   //   event.preventDefault();
