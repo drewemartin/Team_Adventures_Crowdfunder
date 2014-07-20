@@ -50,13 +50,13 @@ $(function() {
             });
         }
 
-
-      jQuery({someValue: 0}).animate({someValue: 180}, {
+    var number = $('#fully-fund-project-count').data("fully-fund-projects");
+      jQuery({someValue: 0}).animate({someValue: number}, {
         duration: 1000,
         easing:'swing', // can be anything
         step: function() { // called on every step
           // Update the element's text with rounded-up value:
-          $('.number').text(Math.ceil(this.someValue)+ " projects funded");
+          $('#fully-fund-project-count').text(number + " projects funded").attr('color','white');
 
        }
 

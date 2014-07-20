@@ -21,6 +21,14 @@ class Project < ActiveRecord::Base
 
   validate :start_time_greater_than_6_hours_from_now
   validate :end_time_greater_than_2_days_from_start_time
+
+  def get_backer_count_for_the_project
+    rewards.inject(0){|sum,reward|
+      num_backer_for_reward = reward.pledges.count
+      sum + num_backer_for_reward
+    }
+  end
+  
   private
   def start_time_greater_than_6_hours_from_now
   	return if (start_time.nil?) 
@@ -37,6 +45,6 @@ class Project < ActiveRecord::Base
   	end
 
 
-  end
 
+  end
 end

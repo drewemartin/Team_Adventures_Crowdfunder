@@ -3,12 +3,11 @@ class ProjectsController < ApplicationController
   before_filter :ensure_logged_in, except: [:index, :show]
 
   def index
-
   	@projects = if params[:search]
-        Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%").order(created_at: :desc).page(params[:page])
+      Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:search]}%").order(created_at: :desc).page(params[:page])
       elsif params[:category_id]
-        category = Category.find(params[:category_id])
-        category.projects.order(created_at: :desc).page(params[:page])
+        @category = Category.find(params[:category_id])
+        @category.projects.order(created_at: :desc).page(params[:page])
       else
         Project.order('projects.created_at DESC').page(params[:page])
       end  
@@ -17,9 +16,11 @@ class ProjectsController < ApplicationController
      @projects.each{|project|
       @hash_amount_project[project.id] = calculate_sum_of_pledges(project)
      }
-     p @hash_amount_project
+
   	 @categories = Category.all
   	 @most_recent_project = Project.most_recent_five
+
+     @total_money_raised = get_total_money_raised
 
     respond_to do |format|
       format.html
@@ -86,6 +87,8 @@ class ProjectsController < ApplicationController
             sum + sum_of_the_reward
         end
     end
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
   
 

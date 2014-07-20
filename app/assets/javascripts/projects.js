@@ -3,8 +3,15 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on('ready page:load', function(){
 
-  if ($("#user_pledge_state").data("amount-pledged") > 0){
+  if ($("#user_pledge_state").data("amount-pledged") > 0)
+  {
       $('.pledge_button').attr('value','Thank You'+ '\n' + 'for Your Pledge').addClass('disabled').attr('disabled','disabled');
+      var amount_pledged = $("#user_pledge_state").data("amount-pledged");
+      $("#user_pledge_state").html("You have backed <strong> $" + amount_pledged + "</strong> on this project")
+  }
+  else
+  {
+    $("#user_pledge_state").hide()
   }
 
 	$(".pledge_form").submit(function(event){
@@ -23,13 +30,13 @@ $(document).on('ready page:load', function(){
                    _this.find('.pledge_button').attr('value', 'Thank You'+ '\n' + 'for Your Pledge');
 
                   var count_pledge_span = _this.closest(".pricing-table").find(".count_pledges")
-                  var count = count_pledge_span.data("pledge-count")
-                  count_pledge_span.text(count + 1)
+                  var count = count_pledge_span.data("pledge-count") + 1
+                  count_pledge_span.text(count + " backers")
 
                   var num_supporters = $("#num_supporters").data("num-supporters")
                   $("#num_supporters").text(num_supporters + 1)
 
-                  $('#user_pledge_state').html("<p>I have backed this project with $"+ data.pledge_amount +"</p>")
+                  $("#user_pledge_state").html("You have backed <strong> $" + data.pledge_amount + "</strong> on this project").show()
             });   
 
 	});
