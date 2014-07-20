@@ -1,2 +1,2 @@
-$('.project-grid').html("<%= j(render @projects)%>")
+$('.all_projects').html("<div id='effect-6' class='effects all_projects clearfix'> <ul class='small-block-grid-3'> <%=  j(render @projects)%> </ul></div>")
 $('#paginate').html("<%= j( paginate(@projects, :remote => true).to_s)%>");

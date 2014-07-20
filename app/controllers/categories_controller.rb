@@ -9,7 +9,11 @@ class CategoriesController < ApplicationController
   end
 
   def show
-
+    @categories = Category.all  
+    @category = Category.find(params[:id])
+    @most_recent_project = @category.projects.most_recent_five
+    @per_category = @category.projects
+    @projects = @projects.order(created_at: :desc).page(params[:page])
   end
 
   def new

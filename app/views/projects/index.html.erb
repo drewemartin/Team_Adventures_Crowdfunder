@@ -38,8 +38,6 @@
 
         <% @categories.each do |category| %> 
 
-          <li data-project-id="<%= category.id %>"><%= link_to category.name, category_path(category) %></li>
-
           <li><%= link_to category.name, projects_path, data: {remote: true, params: { category_id: category.id }.to_param }, class: "category_link" %></li>
 
        
