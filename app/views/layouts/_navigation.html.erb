@@ -45,7 +45,11 @@
       <ul class="right userinfo">
          <% if current_user %>
             <li><%= link_to "Hi! #{current_user.username}", user_path(current_user) %></li>
+
             <li><%= link_to "Log out", session_path("current"), :method => :delete %> </li> 
+
+            <li><%= link_to "Log out", sessions_path("current"), :method => :destroy %> </li> 
+
           <% else %>
          <li><%= link_to "Log in", new_session_path %></li>
          <li> <%= link_to "Sign up", new_user_path %></li>
