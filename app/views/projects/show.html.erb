@@ -11,17 +11,13 @@
     </div>
 
     <div class="medium-8 columns">
-
   
       <div class="row project_title"> 
 
          <div class="medium-8 columns"> <h4>Title: <%= @project[:title] %></h4></div>
 
         <div class="medium-4 medium-pull-1 columns">
-          <h4 id ="user_pledge_state" class="label secondary round">      
-            <% if  @current_user_amount_pledged > 0 %>
-            <span id ="already_backed">You have backed <strong>$<%= @current_user_amount_pledged %> </strong>on this project</span>
-            <% end %>
+          <h4 id ="user_pledge_state" class="label secondary round" data-amount-pledged =<%= @current_user_amount_pledged%>>      
           </h4>
         </div>     
 
@@ -62,11 +58,6 @@
         <li class="price">Goal:$<%= @project.goal %></li>
         <li class="description"><em>Descriptions:</em> <%= @project[:description] %></em></li>
         <li class="bullet-item">Currently Raised: $<%= @sum_of_amount %></li>
-        <li id ="user_pledge_state" data-amount-pledged =<%= @current_user_amount_pledged%>>      
-        <% if  @current_user_amount_pledged >0 %>
-        I have backed this project with $<%= @current_user_amount_pledged %>
-        <% end %>
-        </li>
         <li class="bullet-item">There are <span id="num_supporters" data-num-supporters=<%= @total_supporters%>><%= @total_supporters%></span> supports for this project</li>
       </ul>   
 

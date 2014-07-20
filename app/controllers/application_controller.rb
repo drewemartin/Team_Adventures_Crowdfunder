@@ -25,6 +25,16 @@ class ApplicationController < ActionController::Base
     return ary.reduce(:+)
   end
 
+  def get_total_money_raised
+    Project.all.inject(0){|sum, project|
+      project.rewards.each{|reward|
+        sum += reward.pledges.count * reward.amount
+      }
+      sum
+    }
+  end
+
   helper_method :current_user
   helper_method :funding_count
+  helper_method :get_total_money_raised
 end

@@ -1,2 +1,6 @@
-$('.project-grid').html("<%= j(render @projects)%>")
+$('.all_projects').html("<%= j(render @projects)%>")
+<%if @category%>
+	console.log("<%=@category.get_money_raised_for_the_category%>")
+	$("#money-raised-for-the-category").html("There are $<%=@category.get_money_raised_for_the_category%> raised for category <%=@category.name %>")
+<%end%>
 $('#paginate').html("<%= j( paginate(@projects, :remote => true).to_s)%>");

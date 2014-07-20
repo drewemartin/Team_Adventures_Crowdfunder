@@ -17,13 +17,7 @@
     <% end %>
   </ul>
 
-
-
-
-
   <%= link_to "Start a Project", new_project_path, class: "button success radius large start" %>
-
-
 
 </div><!-- #slider -->
 
@@ -38,16 +32,12 @@
 
         <% @categories.each do |category| %> 
 
-          <li data-project-id="<%= category.id %>"><%= link_to category.name, category_path(category) %></li>
-
           <li><%= link_to category.name, projects_path, data: {remote: true, params: { category_id: category.id }.to_param }, class: "category_link" %></li>
 
        
          <% end %> 
 
       </ul>
-
-      
 
     </div>
 
@@ -56,9 +46,11 @@
       <ul class="breadcrumbs">
         <li><%= link_to "All Projects", projects_path %></li>
       </ul>
+
     
-   
-    <div id="effect-6" class="effects clearfix">
+   <div id="money-raised-for-the-category"></div>
+    <div id="effect-6" class="effects clearfix all_projects">
+
        <ul class="small-block-grid-3">
         <%= render @projects %>
       </ul>
@@ -71,6 +63,6 @@
 
     </div>
 
-  </div><!-- row -->
+  </div>
 
 
