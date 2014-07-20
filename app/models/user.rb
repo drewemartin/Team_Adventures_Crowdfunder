@@ -6,7 +6,6 @@ has_secure_password
   has_many :rewards, :through => :projects
   has_many :pledges
   has_many :reviews
-  has_many :projects, :through => :reviews
 
   validates :username, :presence => true
   validates :username, length: {minimum: 2}
