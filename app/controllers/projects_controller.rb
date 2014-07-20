@@ -13,7 +13,13 @@ class ProjectsController < ApplicationController
         Project.order('projects.created_at DESC').page(params[:page])
       end
     
-    
+     #@sum_of_amount = calculate_sum_of_pledges(@project)
+
+     @hash_amount_project = {}
+     @projects.each{|project|
+      @hash_amount_project[project.id] = calculate_sum_of_pledges(project)
+     }
+     p @hash_amount_project
   	 @categories = Category.all
   	 @most_recent_project = Project.most_recent_five
     # @projects = @projects.order(created_at: :desc).page(params[:page])
