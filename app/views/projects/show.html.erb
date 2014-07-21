@@ -12,9 +12,9 @@
 
         <div class="medium-12 columns">
 
-          <h6>Reviews</h6>
 
-  <p>Reviews for <%= @project.title %></p>
+
+
 
   <% @project.reviews.each do |review| %>
     <p>
@@ -27,26 +27,27 @@
     </p>
   <% end %>
   </div>
-  <% if current_user %>
-  <div>
-  <a href="#" data-reveal-id="myModal" class='button small round right'>New Review</a>
 
-  <div id="myModal" class="reveal-modal small" data-reveal>
+  <div>
+  <!-- <a href="#" id="myModal_btn" class='button small round right'>New Review</a> -->
+
+  <div id="myModal" >
+  <% if current_user %>
     <%= form_for([@project, @review]) do |f| %>
 
     <div class="field">
-      <%= f.label :comment %><br />
+      <%= f.label :leave_a_review %><br />
       <%= f.text_area :comment %>
     </div>
     <div class="actions">
-      <%= f.submit "Submit Comment", :id => "review_submit", class: 'button small radius right'%>
+      <%= f.submit "Submit Comment", :id => "review_submit", class: 'button tiny radius'%>
     </div>
-  <% end %>
-
-   <% else %>
+    <% end %>
+    
+     <% else %>
     <p>Please <%= link_to "login", new_session_path %> to add a review</p>
-  <% end %>
-   <a class="close-reveal-modal">&#215;</a>
+     <% end %>
+
  </div>
 
 
@@ -82,7 +83,7 @@
 
             <div class="progress round" data-attribute-progress>
               <span class="meter" style="width: 1%"></span>
-              <span class="goal" data-attribute-goal=<%= @project.goal %>><%= @project.goal %></span>
+              <span class="goal" data-attribute-goal=<%= @project.goal %>></span>
             </div>
 
         </div><br>

@@ -62,4 +62,10 @@ $(function() {
 
     });
 
+      //Add review
+
+      $('#myModal_btn').on('click', function(){
+            $('#myModal').slideToggle();
+      });
+
     });
