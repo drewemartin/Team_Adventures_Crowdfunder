@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.1.0'
 gem 'rails', '4.1.1'
-gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -19,15 +18,15 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'sorcery'
 gem 'cocoon' 
 gem 'cancancan', '~> 1.8'
-
+gem 'faker'
 
 
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "factory_girl_rails", "~> 4.0"
-  gem 'faker'
   gem 'capybara'
+  gem 'sqlite3'
   gem 'database_cleaner'
   gem 'pry-rails'
 
@@ -37,5 +36,11 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
 end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 
 

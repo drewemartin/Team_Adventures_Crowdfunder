@@ -174,3 +174,17 @@ project_array.each do |project|
   }
 end
 
+project_pledge = Project.all
+
+project_pledge.each do |project|
+user = User.where(:username => "fabio").first
+reward = Reward.first
+
+  50.times{
+    Pledge.create(
+        :user_id => user.id,
+        :reward_id => reward.id
+      )
+  }
+end
+
