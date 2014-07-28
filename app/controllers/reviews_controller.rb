@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   	respond_to do |format|
       if @review.save
         format.html {redirect_to project_path(@project.id), notice: "Your comment was saved"}
-        format.js { notice: "Your comment was saved"}
+        format.js {}
       else
         format.html {render 'projects/show', alert: "there was a an error"}
         format.js {}
