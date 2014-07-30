@@ -1,3 +1,3 @@
 class Person < ActiveRecord::Base
-  authenticates_with_sorcery!
+  # authenticates_with_sorcery!
 end
