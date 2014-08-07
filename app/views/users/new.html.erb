@@ -1,29 +1,26 @@
 
 <div class="row">
+<div class="wrapper">
+	<div class="medium-6 medium-centered columns padding_div">
 
-	<div class="medium-6 columns sign-up-div">
-
-		<h1>Sign Up</h1>
-
-
-		<div class="row">
-			<div class="medium-6 columns">
+		  <h3>Sign Up</h3>
 			<%= form_for @user do |f| %>
-				<div class="field">
-					<%= f.label :username %>
-					<%= f.text_field :username %>
+			<% if @user.errors.any? %>
+				<div data-alert class="alert-box alert radius">
+  				<p>Form is invalid</p>
+		      <ul>
+		      <% for message in @user.errors.full_messages %>
+		     <li class="alert-box-content">
+		       <%= message %>
+		     </li>
+		        <% end %>
+		      </ul>
+  				<a href="#" class="close">&times;</a>
 				</div>
+			<% end %>  
 				<div class="field">
 					<%= f.label :email %>
 					<%= f.text_field :email %>
-				</div>
-				<div class="field">
-					<%= f.label :biography %>
-					<%= f.text_area :biography, placeholder: "please tell us about you"%>  
-				</div>
-				<div class="field">
-					<%= f.label :phone %>
-					<%= f.text_field :phone %>
 				</div>
 				<div class="field">
 				  <%= f.label :password %>
@@ -34,11 +31,12 @@
 				  <%= f.password_field :password_confirmation %>
 				</div>
 				<div class="actions">
-					<%= submit_tag "Login" %>
+					<%= submit_tag "Sign Up", class: 'button tiny success round right' %>
 				</div>
-
 		<% end %>	
-			
+
+		<div class="clearfix"></div>
 	</div><!-- column -->
+</div><!-- wrapper -->
 </div><!-- row -->
 
