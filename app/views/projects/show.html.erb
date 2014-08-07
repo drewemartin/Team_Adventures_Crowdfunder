@@ -12,10 +12,6 @@
 
         <div class="medium-12 columns">
 
-
-
-
-
   <% @project.reviews.each do |review| %>
     <p>
       <%= review.comment %>
@@ -126,7 +122,7 @@
 
             <div class="panel panel-default">
               <!-- Default panel contents -->
-              <div><img src="http://placehold.it/350x150/333/&text=avatar"></div>
+              <div><%= image_tag @project.user.avatar.url(:medium), size: "350x150", alt: "Test" %></div>
               <div class="panel-heading text-center"><em><%= @project.user.username %></em></div>
               <div class="panel-body">
 
