@@ -38,7 +38,6 @@ class ProjectsController < ApplicationController
   def show
     @rewards = @project.rewards
     puts "printing rewards" 
-    p @rewards.count
     @sum_of_amount = calculate_sum_of_pledges(@project)
     @current_user_amount_pledged = get_user_pledge_for_the_project
     @total_supporters = get_total_supporters
@@ -93,6 +92,6 @@ class ProjectsController < ApplicationController
   
 
     def project_params
-      params.require(:project).permit(:title, :description, :goal, :start_time, :end_time, :picture_url, :category_id, rewards_attributes: [:amount, :description, :_destroy])
+      params.require(:project).permit(:title, :description, :goal, :start_time, :end_time, :image, :category_id, rewards_attributes: [:amount, :description, :_destroy])
     end
 end

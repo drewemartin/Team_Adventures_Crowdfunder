@@ -9,6 +9,9 @@ class Project < ActiveRecord::Base
 
   scope :most_recent_five, -> { all.limit(5) }
 
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://ima.gs/ddd/444/36f/unknown-300x300.png"
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
 
   validates :title, :start_time, :end_time, :description, :presence => true
   validates :title, length: {minimum: 3} 
@@ -27,6 +30,15 @@ class Project < ActiveRecord::Base
       num_backer_for_reward = reward.pledges.count
       sum + num_backer_for_reward
     }
+  end
+
+  def get_days_left
+    if ((end_time.to_date - DateTime.now.to_date).to_i > 0)
+      date_left = (end_time.to_date - DateTime.now.to_date).to_i
+     " #{date_left} days left" 
+    else
+      "Expired"
+    end
   end
   
   private
