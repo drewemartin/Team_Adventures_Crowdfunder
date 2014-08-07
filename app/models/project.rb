@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
 
   scope :most_recent_five, -> { all.limit(5) }
 
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://ima.gs/ddd/444/36f/project-image-300x300.png"
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://lorempixel.com/300/300/#{['technics','fashion','sports'].sample}/"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 
@@ -42,6 +42,7 @@ class Project < ActiveRecord::Base
   end
   
   private
+  
   def start_time_greater_than_6_hours_from_now
   	return if (start_time.nil?) 
   		if DateTime.now + 6.hour > start_time
