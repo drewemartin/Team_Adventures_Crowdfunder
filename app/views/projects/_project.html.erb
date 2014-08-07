@@ -15,7 +15,7 @@
 
 
         <p>
-            <span class="title">project: <strong><%= project.title %></strong></span><span class="text-left days"><hr><%= (project.end_time.to_date - DateTime.now.to_date).to_i %> days left</span><span class="right fund_raised" id="value" data-attribute-amount=<%= @hash_amount_project[project.id] %>>Fund raised: $<%= @hash_amount_project[project.id] %>
+            <span class="title">project: <strong><%= project.title %></strong></span><span class="text-left days"><hr><%= project.get_days_left %></span><span class="right fund_raised" id="value" data-attribute-amount=<%= @hash_amount_project[project.id] %>>Fund raised: $<%= @hash_amount_project[project.id] %>
             </span>
             <span class="goal" style="display:none" data-attribute-goal=<%= project.goal  %>><%= project.goal %></span>
             <!-- <span> backers of the project: <%= project.get_backer_count_for_the_project%> </span> -->

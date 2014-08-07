@@ -31,6 +31,15 @@ class Project < ActiveRecord::Base
       sum + num_backer_for_reward
     }
   end
+
+  def get_days_left
+    if ((end_time.to_date - DateTime.now.to_date).to_i > 0)
+      date_left = (end_time.to_date - DateTime.now.to_date).to_i
+     " #{date_left} days left" 
+    else
+      "Expired"
+    end
+  end
   
   private
   def start_time_greater_than_6_hours_from_now

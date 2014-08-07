@@ -95,7 +95,7 @@
             <tr>
               <th width="250">Start Date: <span><%= @project.start_time.to_date  %></span></th>
               <th width="250">End Date: <span><%= @project.end_time.to_date  %></span></th>
-              <th width="250">Days left: <span><%= (@project.end_time.to_date - DateTime.now().to_date).to_i %></span></th>
+              <th width="250">Days left: <span><%= @project.get_days_left %></span></th>
             </tr>
           </thead>
         </table>
