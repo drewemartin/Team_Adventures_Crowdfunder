@@ -40,7 +40,6 @@ class ApplicationController < ActionController::Base
       if(project.end_time.to_date >= DateTime.now().to_date and calculate_sum_of_pledges(project) >= project.goal)
         arr << project
       end
-      puts arr.count
       arr
     }
   end
