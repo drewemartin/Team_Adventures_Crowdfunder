@@ -6,7 +6,7 @@
 
     <div class="medium-4 columns">
 
-      <img class="th" src="http://lorempixel.com/300/250/technics/<%= @project[:picture_url] %>" alt="slide 2" />
+      <%= image_tag @project.image.url, class: "th",alt: "slide 2" %>
 
       <div class="row">
 

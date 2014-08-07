@@ -19,6 +19,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'sorcery'
 gem 'cocoon' 
 gem 'cancancan', '~> 1.8'
+gem "paperclip", "~> 4.1"
 
 
 
