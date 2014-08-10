@@ -199,7 +199,7 @@
                       <li class="divider"></li>
                        <li class="description"><%=reward.description%></li>
                        <li class="count_pledges text-center" data-pledge-count= <%= reward.pledges.count %>><%= reward.pledges.count %> backers</li>
-                       <% if current_user %>
+                    
 
                       <li class="cta-button">
                         <%= form_tag( pledges_path,{:method=>:post, :class => 'pledge_form'}) do%>
@@ -209,8 +209,8 @@
                               <% end%>
 
                             <%= hidden_field_tag :reward_id, reward.id %>
-                            <%= submit_tag "Pledge", class: "button small alert radius pledge_button"%>
-                        <% end %>    
+                            <%= submit_tag "Pledge", class: "button small alert radius pledge_button"%><br>
+                            <span>Please log in  to pledge</span>
                       </li>
                       <% end %>
                     </ul>
