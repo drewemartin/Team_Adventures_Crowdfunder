@@ -41,7 +41,7 @@ $(document).on('ready page:load', function(){
 
         var ctabtn = $('.cta-button').find('.pledge_button');
         ctabtn.on('click', function()
-          $(this).next().next().fadeIn();
+          // $(this).next().next().fadeIn();
         })
 
 	});
