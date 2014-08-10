@@ -1,10 +1,10 @@
-<%= form_for @project do |f| %>
+<%= form_for @project, :html => { :multipart => true } do |f| %>
   <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+    <div data-alert class="alert-box alert radius">
+      <p><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</p>
       <ul>
         <% @project.errors.full_messages.each do |msg|%>
-          <li><%= msg %></li>
+          <li class="alert-box-content"><%= msg %></li>
         <% end %>
       </ul>
     </div>
@@ -35,9 +35,9 @@
     <%= f.date_field :end_time %>
   </div>
   <div class="field">
-    <%= f.label :picture_url %>
+    <%= f.label :image %>
     <br/>
-    <%= f.text_field :picture_url %>
+    <%= f.file_field :image %>
   </div>
     <div class="field">
     <%= f.label "Category" %>
@@ -49,8 +49,8 @@
       <%= render 'reward_fields', :f => reward %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association 'add reward', f, :rewards, class: 'button tiny round' %>
+      <%= link_to_add_association 'Add Reward', f, :rewards, class: 'button tiny radius expand' %>
     </div>
   </div>
-  <%= f.submit class: 'button success small radius right', value: 'Add Project' %><br><hr>
+  <%= f.submit class: 'button success small radius right', value: 'Create Project' %><br><hr>
 <% end %>

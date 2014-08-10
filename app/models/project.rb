@@ -9,6 +9,9 @@ class Project < ActiveRecord::Base
 
   scope :most_recent_five, -> { all.limit(5) }
 
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "http://lorempixel.com/300/300/#{['technics','fashion','sports'].sample}/"
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
 
   validates :title, :start_time, :end_time, :description, :presence => true
   validates :title, length: {minimum: 3} 
@@ -28,8 +31,18 @@ class Project < ActiveRecord::Base
       sum + num_backer_for_reward
     }
   end
+
+  def get_days_left
+    if ((end_time.to_date - DateTime.now.to_date).to_i > 0)
+      date_left = (end_time.to_date - DateTime.now.to_date).to_i
+     " #{date_left} days left" 
+    else
+      "Expired"
+    end
+  end
   
   private
+  
   def start_time_greater_than_6_hours_from_now
   	return if (start_time.nil?) 
   		if DateTime.now + 6.hour > start_time

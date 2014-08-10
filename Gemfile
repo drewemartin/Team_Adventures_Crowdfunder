@@ -19,6 +19,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'cocoon' 
 gem 'cancancan', '~> 1.8'
 gem 'faker'
+gem "paperclip", "~> 4.1"
+gem "heroku"
+
 
 
 

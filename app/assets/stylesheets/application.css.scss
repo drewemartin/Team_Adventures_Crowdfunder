@@ -16,6 +16,7 @@
 
 @import 'foundation-icons';
 
+
 /* Layout Variables */
 $margin: 20px;
 $font-size: 2rem;
@@ -28,6 +29,23 @@ $radius: 5px;
 .margin40 {
 	margin-top: $margin +20px;
 }
+
+.padding_div{
+  padding-top: 20px;
+  padding-bottom: 20px;
+ }
+
+ .wrapper {
+	width: 60%;
+	margin: 0 auto;
+ 	margin-top: 5%;
+ 	padding: 0 0 3% 0; 
+ 	background: #eee;
+ }
+
+ .alert-box, .alert-box-content {
+ 	font-size: 0.72222rem;
+ }
 
 section {
 	margin:0;
