@@ -40,6 +40,14 @@ class Project < ActiveRecord::Base
       "Expired"
     end
   end
+
+  def is_expired?
+    if ((end_time.to_date - DateTime.now.to_date).to_i > 0)
+      false
+    else
+      true
+    end
+  end
   
   private
   

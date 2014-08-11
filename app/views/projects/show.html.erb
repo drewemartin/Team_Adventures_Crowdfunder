@@ -200,13 +200,17 @@
                       <li class="description"><%=reward.description%></li>
                       <li class="count_pledges text-center" data-pledge-count= <%= reward.pledges.count %>><%= reward.pledges.count %> backers</li>
                       <% if current_user %>
-                      <li class="cta-button">
-                          <%= form_tag( pledges_path,{:method=>:post, :class => 'pledge_form'}) do%>
-                            <%= hidden_field_tag :user_id, current_user.id %>
-                            <%= hidden_field_tag :reward_id, reward.id %>
-                            <%= submit_tag "Pledge", class: "button small alert radius pledge_button"%>
-                          <% end %>    
-                      </li>
+                        <% if !@project.is_expired?%>
+                          <li class="cta-button">
+                            <%= form_tag( pledges_path,{:method=>:post, :class => 'pledge_form'}) do%>
+                              <%= hidden_field_tag :user_id, current_user.id %>
+                              <%= hidden_field_tag :reward_id, reward.id %>
+                              <%= submit_tag "Pledge", class: "button small alert radius pledge_button"%>
+                            <% end %>    
+                          </li>
+                        <% else %>
+                          <li>The project has expired.</li>
+                        <% end %>    
                       <% else %>
                       <li>please <%= link_to("Login",new_session_path) %> to pledge </li>
                       <% end %>
