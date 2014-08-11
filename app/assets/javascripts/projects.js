@@ -39,10 +39,10 @@ $(document).on('ready page:load', function(){
                   $("#user_pledge_state").html("You have backed <strong> $" + data.pledge_amount + "</strong> on this project").show()
             });  
 
-        var ctabtn = $('.cta-button').find('.pledge_button');
-        ctabtn.on('click', function()
-          // $(this).next().next().fadeIn();
-        })
+        // var ctabtn = $('.cta-button').find('.pledge_button');
+        // ctabtn.on('click', function()
+        //   // $(this).next().next().fadeIn();
+        // })
 
 	});
 
