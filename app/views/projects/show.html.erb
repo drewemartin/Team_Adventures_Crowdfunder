@@ -197,21 +197,18 @@
                     <ul class="pricing-table" data-equalizer-watch>
                       <li class="title">$<%= reward.amount %></li>
                       <li class="divider"></li>
-                       <li class="description"><%=reward.description%></li>
-                       <li class="count_pledges text-center" data-pledge-count= <%= reward.pledges.count %>><%= reward.pledges.count %> backers</li>
-                    
-
+                      <li class="description"><%=reward.description%></li>
+                      <li class="count_pledges text-center" data-pledge-count= <%= reward.pledges.count %>><%= reward.pledges.count %> backers</li>
+                      <% if current_user %>
                       <li class="cta-button">
-                        <%= form_tag( pledges_path,{:method=>:post, :class => 'pledge_form'}) do%>
-
-                              <% if !current_user.nil? %>
+                          <%= form_tag( pledges_path,{:method=>:post, :class => 'pledge_form'}) do%>
                             <%= hidden_field_tag :user_id, current_user.id %>
-                              <% end%>
-
                             <%= hidden_field_tag :reward_id, reward.id %>
-                            <%= submit_tag "Pledge", class: "button small alert radius pledge_button"%><br>
-                            <span>Please log in  to pledge</span>
+                            <%= submit_tag "Pledge", class: "button small alert radius pledge_button"%>
+                          <% end %>    
                       </li>
+                      <% else %>
+                      <li>please <%= link_to("Login",new_session_path) %> to pledge </li>
                       <% end %>
                     </ul>
                   </div>
