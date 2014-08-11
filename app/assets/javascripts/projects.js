@@ -54,7 +54,9 @@ $(document).on('ready page:load', function(){
 
      // Goals animate
       var goal = $('.goal').attr('data-attribute-goal'); 
+      console.log("goal is:" + goal)
       var value = $('.fund_raised').attr('data-attribute-amount');
+      console.log("fund raised:" + value)
       var today = Date.new
       var meter_color = $('.meter').parent();
       var thumb_meter_color = $('.thumb_meter').parent();
@@ -71,18 +73,18 @@ $(document).on('ready page:load', function(){
         thumb_meter_color.removeClass('alert');
        }
 
-      jQuery({someValue: 0}).animate({someValue: parseInt(value)}, {
+      jQuery({someValue: 0}).animate({someValue: (value / goal *100)}, {
         duration: 1000,
         easing:'swing', // can be anything
         step: function() { // called on every step
           // Update the element's text with rounded-up value:
-          $('#el').text(Math.ceil(this.someValue)+ "% of the goal reached");
+          $('#el').text((this.someValue).toFixed(2)+ "% of the goal reached");
 
        }
 
     });
 
-      var percentage_goal = (parseInt(value)/parseInt(goal))*100 + "%"
+      var percentage_goal = (value / goal *100) + "%"
       meter = $('.meter');
       thumb_meter = $('.thumb_meter');
       width = $('.meter').attr('style');
