@@ -25,6 +25,19 @@ $(document).on('ready page:load', function(){
             }).done(function(data){
                   console.log(data)
                   $('.fund_raised').text("$" + data.total_pledged + " Raised");
+                  $('.fund_raised').data('attribute-amount', data.total_pledged);
+
+                  var goal = $('.goal').attr('data-attribute-goal'); 
+                  //var value = $('.fund_raised').attr('data-attribute-amount');
+                  width = $('.meter').attr('style');
+                  $('.meter').animate({
+                          duration: 4000,
+                          width: (data.total_pledged / goal *100) + "%",
+                          easing:'swing' // can be anything
+                          }); 
+
+
+                   $('#el').text((data.total_pledged/goal * 100).toFixed(2)+ "% of the goal reached");
 
                   $('.pledge_button').addClass('disabled').attr('disabled','disabled');       
                    _this.find('.pledge_button').attr('value', 'Thank You'+ '\n' + 'for Your Pledge');
@@ -37,6 +50,8 @@ $(document).on('ready page:load', function(){
                   $("#num_supporters").text(num_supporters + 1)
 
                   $("#user_pledge_state").html("You have backed <strong> $" + data.pledge_amount + "</strong> on this project").show()
+
+
             });  
 
         // var ctabtn = $('.cta-button').find('.pledge_button');
@@ -59,19 +74,19 @@ $(document).on('ready page:load', function(){
       console.log("fund raised:" + value)
       var today = Date.new
       var meter_color = $('.meter').parent();
-      var thumb_meter_color = $('.thumb_meter').parent();
+      //var thumb_meter_color = $('.thumb_meter').parent();
      
 
-      if (parseInt(value) <= 25) {
-        meter_color.addClass('alert');
-        thumb_meter_color.addClass('alert');
-       } else if (parseInt(value) <= 50) {
-        meter_color.removeClass('alert');
-        thumb_meter_color.removeClass('alert');
-       } else {
-        meter_color.addClass('success');
-        thumb_meter_color.removeClass('alert');
-       }
+      // if (parseInt(value) <= 25) {
+      //   meter_color.addClass('alert');
+      //   thumb_meter_color.addClass('alert');
+      //  } else if (parseInt(value) <= 50) {
+      //   meter_color.removeClass('alert');
+      //   thumb_meter_color.removeClass('alert');
+      //  } else {
+      //   meter_color.addClass('success');
+      //   thumb_meter_color.removeClass('alert');
+      //  }
 
       jQuery({someValue: 0}).animate({someValue: (value / goal *100)}, {
         duration: 1000,
@@ -86,9 +101,9 @@ $(document).on('ready page:load', function(){
 
       var percentage_goal = (value / goal *100) + "%"
       meter = $('.meter');
-      thumb_meter = $('.thumb_meter');
+      //thumb_meter = $('.thumb_meter');
       width = $('.meter').attr('style');
-      thumb_meter.css('color', '#666');
+      //thumb_meter.css('color', '#666');
 
         meter.animate({
           duration: 4000,
@@ -97,12 +112,12 @@ $(document).on('ready page:load', function(){
 
         }); 
 
-         thumb_meter.animate({
-          duration: 8000,
-          width: percentage_goal,
-          easing:'swing' // can be anything
+        //  thumb_meter.animate({
+        //   duration: 8000,
+        //   width: percentage_goal,
+        //   easing:'swing' // can be anything
 
-        }); 
+        // }); 
 
 
          
