@@ -10,9 +10,7 @@ Users can start and fund new projects.
 
 * Single user model for both funding and project creaction
 
-* Clearly defined authorization regimes (powered by cancancan)
-
-* Users can search for projects by name and category (powered by jquery)
+* Users can search for projects by name and category (powered by ajax)
 
 ###Specs
 
