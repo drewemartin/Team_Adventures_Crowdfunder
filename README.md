@@ -1,48 +1,32 @@
-Crowdfunder
-================
+#Welcome to Crowdfuder
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+This is a project modelled off the popular site Kickstarter. 
+Users can start and fund new projects. 
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
 
-Problems? Issues?
------------
+###Functionality Highlights
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
+* Utilizes nested forms (powered by cocoon gem)
 
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
+* Single user model for both funding and project creaction
 
-If the application doesn’t work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
+* Clearly defined authorization regimes (powered by cancancan)
 
-Ruby on Rails
--------------
+* Users can search for projects by name and category (powered by jquery)
 
-This application requires:
+###Specs
 
-- Ruby 2.1.0
-- Rails 4.1.1
+* Made with Ruby on Rails(infrastructure) 
 
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
+* TDD development for data models, crafted using Rspec, FactoryGirl and Faker
 
-Getting Started
----------------
+* UX is complemented with Foundation 
 
-Documentation and Support
--------------------------
 
-Issues
--------------
+###Collaborators
 
-Similar Projects
-----------------
+* Drew Martin (Drew.E.Martin@gmail.com)
 
-Contributing
-------------
+* Weiyi Zheng (zhengweiyi@gmail.com)
 
-Credits
--------
-
-License
--------
+* Sandy Ludosky (sandyludosky@gmail.com)
