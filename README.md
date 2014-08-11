@@ -3,6 +3,7 @@
 This is a project modelled off the popular site Kickstarter. 
 Users can start and fund new projects. 
 
+Heroku host: http://crowdfounder.herokuapp.com/
 
 ###Functionality Highlights
 
