@@ -1,4 +1,4 @@
-#Welcome to Crowdfuder
+#Welcome to Crowdfunder
 
 This is a project modelled off the popular site Kickstarter. 
 Users can start and fund new projects. 
